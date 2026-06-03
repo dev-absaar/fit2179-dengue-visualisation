@@ -1,0 +1,136 @@
+geo_name,state,year,cases,pop_thousands,incidence
+Johor,Johor,2014,6323,3559.8,177.6
+Johor,Johor,2015,15743,3610.3,436.1
+Johor,Johor,2016,10641,3651.8,291.4
+Johor,Johor,2017,7932,3697.0,214.6
+Johor,Johor,2018,5885,3749.4,157.0
+Johor,Johor,2019,10873,3761.2,289.1
+Johor,Johor,2020,11622,4009.7,289.8
+Johor,Johor,2021,1775,4020.0,44.2
+Johor,Johor,2023,10794,4107.2,262.8
+Kedah,Kedah,2014,1014,2062.7,49.2
+Kedah,Kedah,2015,1000,2096.5,47.7
+Kedah,Kedah,2016,994,2119.7,46.9
+Kedah,Kedah,2017,1430,2143.9,66.7
+Kedah,Kedah,2018,2190,2163.0,101.2
+Kedah,Kedah,2019,1587,2173.7,73.0
+Kedah,Kedah,2020,780,2131.4,36.6
+Kedah,Kedah,2021,644,2151.7,29.9
+Kedah,Kedah,2023,5207,2189.3,237.8
+Kelantan,Kelantan,2014,14456,1723.4,838.8
+Kelantan,Kelantan,2015,2850,1760.6,161.9
+Kelantan,Kelantan,2016,6180,1796.7,344.0
+Kelantan,Kelantan,2017,2515,1829.0,137.5
+Kelantan,Kelantan,2018,1950,1860.5,104.8
+Kelantan,Kelantan,2019,6003,1883.8,318.7
+Kelantan,Kelantan,2020,3889,1792.5,217.0
+Kelantan,Kelantan,2021,223,1812.3,12.3
+Kelantan,Kelantan,2023,2790,1859.8,150.0
+Malacca,Melaka,2014,2770,871.7,317.8
+Malacca,Melaka,2015,2420,889.0,272.2
+Malacca,Melaka,2016,2299,901.1,255.1
+Malacca,Melaka,2017,1425,913.1,156.1
+Malacca,Melaka,2018,722,922.4,78.3
+Malacca,Melaka,2019,2156,928.4,232.2
+Malacca,Melaka,2020,2843,998.4,284.8
+Malacca,Melaka,2021,611,1004.5,60.8
+Malacca,Melaka,2023,1221,1028.3,118.7
+Negeri Sembilan,Negeri Sembilan,2014,3781,1079.6,350.2
+Negeri Sembilan,Negeri Sembilan,2015,2454,1088.8,225.4
+Negeri Sembilan,Negeri Sembilan,2016,2879,1099.3,261.9
+Negeri Sembilan,Negeri Sembilan,2017,3055,1114.0,274.2
+Negeri Sembilan,Negeri Sembilan,2018,1864,1122.9,166.0
+Negeri Sembilan,Negeri Sembilan,2019,2305,1126.2,204.7
+Negeri Sembilan,Negeri Sembilan,2020,2891,1200.0,240.9
+Negeri Sembilan,Negeri Sembilan,2021,649,1204.2,53.9
+Negeri Sembilan,Negeri Sembilan,2023,5133,1224.9,419.1
+Pahang,Pahang,2014,2170,1591.7,136.3
+Pahang,Pahang,2015,3001,1607.9,186.6
+Pahang,Pahang,2016,3050,1626.7,187.5
+Pahang,Pahang,2017,1690,1647.0,102.6
+Pahang,Pahang,2018,990,1664.7,59.5
+Pahang,Pahang,2019,2873,1671.4,171.9
+Pahang,Pahang,2020,3220,1591.3,202.4
+Pahang,Pahang,2021,428,1601.5,26.7
+Pahang,Pahang,2023,1609,1643.2,97.9
+Perak,Perak,2014,7525,2458.8,306.0
+Perak,Perak,2015,9466,2466.9,383.7
+Perak,Perak,2016,3777,2482.1,152.2
+Perak,Perak,2017,5411,2493.2,217.0
+Perak,Perak,2018,2736,2503.5,109.3
+Perak,Perak,2019,3226,2508.8,128.6
+Perak,Perak,2020,2665,2496.0,106.8
+Perak,Perak,2021,557,2515.8,22.1
+Perak,Perak,2023,4516,2541.2,177.7
+Perlis,Perlis,2014,317,245.1,129.3
+Perlis,Perlis,2015,258,248.5,103.8
+Perlis,Perlis,2016,183,251.0,72.9
+Perlis,Perlis,2017,175,252.0,69.4
+Perlis,Perlis,2018,369,253.5,145.6
+Perlis,Perlis,2019,288,254.0,113.4
+Perlis,Perlis,2020,80,284.9,28.1
+Perlis,Perlis,2021,21,287.6,7.3
+Perlis,Perlis,2023,821,293.1,280.1
+Penang,Pulau Pinang,2014,3141,1678.1,187.2
+Penang,Pulau Pinang,2015,5830,1698.1,343.3
+Penang,Pulau Pinang,2016,2576,1717.7,150.0
+Penang,Pulau Pinang,2017,2681,1744.1,153.7
+Penang,Pulau Pinang,2018,6071,1762.8,344.4
+Penang,Pulau Pinang,2019,4119,1768.8,232.9
+Penang,Pulau Pinang,2020,1043,1740.4,59.9
+Penang,Pulau Pinang,2021,406,1740.0,23.3
+Penang,Pulau Pinang,2023,7346,1772.6,414.4
+Sabah,Sabah,2014,1456,3669.9,39.7
+Sabah,Sabah,2015,2904,3720.5,78.1
+Sabah,Sabah,2016,3668,3802.8,96.5
+Sabah,Sabah,2017,2560,3855.9,66.4
+Sabah,Sabah,2018,3423,3898.4,87.8
+Sabah,Sabah,2019,5478,3904.4,140.3
+Sabah,Sabah,2020,4078,3418.8,119.3
+Sabah,Sabah,2021,1763,3412.6,51.7
+Sabah,Sabah,2023,6983,3596.7,194.2
+Sarawak,Sarawak,2014,2571,2664.0,96.5
+Sarawak,Sarawak,2015,1923,2701.5,71.2
+Sarawak,Sarawak,2016,2773,2738.7,101.3
+Sarawak,Sarawak,2017,952,2766.3,34.4
+Sarawak,Sarawak,2018,823,2791.7,29.5
+Sarawak,Sarawak,2019,2648,2806.0,94.4
+Sarawak,Sarawak,2020,1516,2453.7,61.8
+Sarawak,Sarawak,2021,426,2465.6,17.3
+Sarawak,Sarawak,2023,1091,2502.3,43.6
+Selangor,Selangor,2014,54290,6051.3,897.2
+Selangor,Selangor,2015,63198,6178.0,1023.0
+Selangor,Selangor,2016,51652,6291.5,821.0
+Selangor,Selangor,2017,45290,6380.7,709.8
+Selangor,Selangor,2018,45349,6475.0,700.4
+Selangor,Selangor,2019,72543,6506.1,1115.0
+Selangor,Selangor,2020,44635,6994.4,638.2
+Selangor,Selangor,2021,15741,7014.7,224.4
+Selangor,Selangor,2023,61080,7209.7,847.2
+Terengganu,Terengganu,2014,1688,1140.4,148.0
+Terengganu,Terengganu,2015,1455,1161.0,125.3
+Terengganu,Terengganu,2016,2009,1183.4,169.8
+Terengganu,Terengganu,2017,292,1208.0,24.2
+Terengganu,Terengganu,2018,550,1228.3,44.8
+Terengganu,Terengganu,2019,542,1244.5,43.6
+Terengganu,Terengganu,2020,404,1149.4,35.1
+Terengganu,Terengganu,2021,49,1170.7,4.2
+Terengganu,Terengganu,2023,277,1210.0,22.9
+Labuan,W.P. Labuan,2014,11,93.8,11.7
+Labuan,W.P. Labuan,2015,2,95.1,2.1
+Labuan,W.P. Labuan,2016,13,96.8,13.4
+Labuan,W.P. Labuan,2017,91,97.6,93.2
+Labuan,W.P. Labuan,2018,102,99.0,103.0
+Labuan,W.P. Labuan,2019,36,99.3,36.3
+Labuan,W.P. Labuan,2020,7,95.1,7.4
+Labuan,W.P. Labuan,2021,5,96.0,5.2
+Labuan,W.P. Labuan,2023,59,99.0,59.6
+Kuala Lumpur,WP Kuala Lumpur,2014,7185,1737.4,413.5
+Kuala Lumpur,WP Kuala Lumpur,2015,8332,1780.4,468.0
+Kuala Lumpur,WP Kuala Lumpur,2016,8663,1789.7,484.0
+Kuala Lumpur,WP Kuala Lumpur,2017,8350,1793.2,465.6
+Kuala Lumpur,WP Kuala Lumpur,2018,7591,1790.0,424.1
+Kuala Lumpur,WP Kuala Lumpur,2019,15424,1782.5,865.3
+Kuala Lumpur,WP Kuala Lumpur,2020,10631,1982.1,536.4
+Kuala Lumpur,WP Kuala Lumpur,2021,3067,1964.0,156.2
+Kuala Lumpur,WP Kuala Lumpur,2023,14206,2005.7,708.3

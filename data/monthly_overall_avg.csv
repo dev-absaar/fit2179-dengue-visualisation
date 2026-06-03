@@ -1,0 +1,13 @@
+month,month_name,cases,is_monsoon
+1,Jan,2086,True
+2,Feb,1974,False
+3,Mar,1606,False
+4,Apr,1323,False
+5,May,1500,False
+6,Jun,1872,False
+7,Jul,2037,False
+8,Aug,1855,False
+9,Sep,1599,False
+10,Oct,1439,True
+11,Nov,1612,True
+12,Dec,1902,True

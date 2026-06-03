@@ -1,0 +1,73 @@
+era,month,month_name,cases,peak_label,context_label,peak_align,peak_dx,is_peak
+COVID (2020–2021),1,Jan,1762,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,True
+COVID (2020–2021),2,Feb,1653,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),3,Mar,1215,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),4,Apr,860,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),5,May,1066,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),6,Jun,1310,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),7,Jul,1261,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),8,Aug,1067,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),9,Sep,886,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),10,Oct,758,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),11,Nov,734,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+COVID (2020–2021),12,Dec,691,"Jan: 1,762  (−28% vs pre-COVID)","Lockdowns suppressed
+cases year-round",left,8,False
+Post-COVID (2022),1,Jan,722,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),2,Feb,664,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),3,Mar,688,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),4,Apr,986,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),5,May,1177,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),6,Jun,1471,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),7,Jul,1558,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),8,Aug,1357,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),9,Sep,1405,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),10,Oct,1525,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),11,Nov,1684,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,False
+Post-COVID (2022),12,Dec,1952,"Dec peak: 1,952  (pattern inverted)","Recovery: peak shifted
+to Dec — new pattern",right,-8,True
+Pre-COVID (2014–2019),1,Jan,2460,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,True
+Pre-COVID (2014–2019),2,Feb,2299,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),3,Mar,1873,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),4,Apr,1517,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),5,May,1728,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),6,Jun,2107,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),7,Jul,2356,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),8,Aug,2235,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),9,Sep,1848,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),10,Oct,1658,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),11,Nov,1906,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False
+Pre-COVID (2014–2019),12,Dec,2221,"Jan peak: 2,460 avg","Strong Jan–Feb peak
+after NE monsoon",left,8,False

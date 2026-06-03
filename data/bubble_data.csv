@@ -1,0 +1,16 @@
+state,total_cases,num_years,avg_annual_cases,avg_pop_thousands,incidence_per_100k,region,show_label,label_dx,label_dy
+Johor,81588,9,9065,3819.5,237.3,Peninsular,1,-10,-44
+Kedah,14846,9,1650,2139.5,77.1,Peninsular,0,0,0
+Kelantan,40856,9,4540,1814.9,250.2,East Coast,1,0,-32
+Melaka,16467,9,1830,946.6,193.3,Peninsular,0,0,0
+Negeri Sembilan,25011,9,2779,1146.8,242.3,Peninsular,0,0,0
+Pahang,19031,9,2115,1626.0,130.1,East Coast,0,0,0
+Perak,39879,9,4431,2498.1,177.4,Peninsular,0,0,0
+Perlis,2512,9,279,266.0,104.9,Peninsular,0,0,0
+Pulau Pinang,33213,9,3690,1736.4,212.5,Peninsular,0,0,0
+Sabah,32313,9,3590,3669.5,97.8,Borneo,1,0,-32
+Sarawak,14723,9,1636,2636.3,62.1,Borneo,0,0,0
+Selangor,453778,9,50420,6615.2,762.2,Peninsular,1,0,-88
+Terengganu,7266,9,807,1188.2,67.9,East Coast,0,0,0
+W.P. Labuan,326,9,36,96.9,37.2,Borneo,1,52,0
+WP Kuala Lumpur,83449,9,9272,1858.6,498.9,Peninsular,1,-10,-58
