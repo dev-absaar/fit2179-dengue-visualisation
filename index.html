@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dengue Watch — Malaysia 2014–2023</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,400&family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Archivo:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="page-container">
+
+  <!-- -->
+  <!-- HERO               -->
+  <!-- -->
+  <header class="hero">
+  <!-- The layout wrapper splits the text and image side-by-side -->
+  <div class="hero-layout">
+    
+    <div class="hero-inner">
+      <span class="hero-tag">Dengue Watch · Malaysia · 2014–2023</span>
+      <h1 class="hero-title">
+        It <span class="rain">rains.</span><br>
+        Weeks later,<br>
+        the hospitals <span class="case">fill up.</span>
+      </h1>
+      <p class="hero-subtitle">
+        For a decade Malaysia’s dengue outbreaks followed the monsoon like a shadow —
+        until movement-control orders emptied the streets in 2021 and showed that the
+        weather was never the whole story.
+      </p>
+      <p class="hero-meta">A data story by Absaar · FIT2179 Data Visualisation 2 · Monash University Malaysia · 2026</p>
+    </div>
+
+    <!-- Points directly to your dengue-icon.png file -->
+    <div class="hero-image-container">
+      <img src="images/dengue-icon.png" alt="Anti-Mosquito Sign" class="hero-image">
+    </div>
+
+  </div>
+  <div class="hero-divider"></div>
+</header>
+
+    <!-- -->
+    <!-- SECTION 1 — THE SCALE                                        -->
+    <!-- How big is dengue in Malaysia?                            -->
+    <!---->
+    <section class="section" id="s1">
+      <div class="section-head">
+        <span class="section-num">1</span>
+        <div>
+          <span class="section-tag">The scale</span>
+          <h2 class="section-q">How big is dengue in Malaysia?</h2>
+        </div>
+      </div>
+
+      <div class="stat-row">
+        <div class="stat-card stat-card--danger">
+          <p class="stat-number">123,133</p><p class="stat-label">Cases reported in 2023</p>
+        </div>
+        <div class="stat-card stat-card--danger">
+          <p class="stat-number">100</p><p class="stat-label">Deaths in 2023</p>
+        </div>
+        <div class="stat-card stat-card--warning">
+          <p class="stat-number">1 in 260</p><p class="stat-label">Malaysians infected in 2023</p>
+        </div>
+      </div>
+
+      <p class="lede">
+        Dengue is not a rare tropical footnote here — it is an annual emergency. Over the
+        past decade Malaysia logged more than 900,000 cases. The burden has never been
+        steady: it climbs, it breaks records, and once — in 2021 — it collapsed to a
+        fraction of its normal size.
+      </p>
+
+      <!-- CHART 1: Annual reported cases  -->
+      <div class="chart-block">
+        <div class="chart-label">
+          <h3 class="chart-title">A decade of dengue</h3>
+          <p class="chart-subtitle">Reported cases per year · Malaysia · 2014–2023</p>
+        </div>
+        <div id="chart1" class="chart-embed"></div>
+        <!-- ANNOTATIONS: "2019 — record 130,101" · "2021 — crashed to 26,365" · "2023 — rebound 123,133" -->
+        <p class="chart-source">Source: Ministry of Health Malaysia via OpenDengue v1.3 (CC-BY 4.0)</p>
+      </div>
+
+      <div class="narrative">
+        <p>
+          Case numbers measure scale; deaths measure the human cost — and the two have
+          pulled apart. Even as outbreaks rebounded toward record size, the share of
+          patients who died kept falling. Better, faster treatment is the reason.
+        </p>
+      </div>
+
+      <!-- CHART_CFR: Case-fatality dot-line -->
+      <div class="chart-block">
+        <div class="chart-label">
+          <h3 class="chart-title">More cases, but fewer deaths</h3>
+          <p class="chart-subtitle">Deaths per 1,000 reported cases · dot size = total deaths that year</p>
+        </div>
+        <div id="chart_cfr" class="chart-embed"></div>
+        <!-- ANNOTATION: "Down ~71% since 2015 — treatment is improving" -->
+        <p class="chart-source">Source: Ministry of Health Malaysia Annual Health Statistics</p>
+      </div>
+    </section>
+
+    <!-- -->
+    <!-- SECTION 2 — THE TIMING                                       -->
+    <!--  When does dengue strike?                                  -->
+    <!-- -->
+    <section class="section section--alt" id="s2">
+      <div class="section-head">
+        <span class="section-num">2</span>
+        <div>
+          <span class="section-tag">The timing</span>
+          <h2 class="section-q">When does dengue strike?</h2>
+        </div>
+      </div>
+
+      <p class="lede">
+        Strip away the year-to-year drama and a steady heartbeat remains. Dengue has a
+        season. Knowing its rhythm is how hospitals, councils and families prepare
+        <em>before</em> the wave — not after.
+      </p>
+
+      <!-- CHART 11: Monthly seasonal climatology ("the drumbeat") -->
+      <div class="chart-block">
+        <div class="chart-label">
+          <h3 class="chart-title">The dengue year, month by month</h3>
+          <p class="chart-subtitle">Average weekly cases by month · 2014–2022 · teal = NE monsoon (Oct–Jan)</p>
+        </div>
+        <div id="chart11" class="chart-embed"></div>
+        <!-- ANNOTATION: "Worst month: January. Risk builds through the monsoon." -->
+        <p class="chart-source">Source: OpenDengue · Ministry of Health Malaysia</p>
+      </div>
+
+      <div class="narrative">
+        <p>
+          But the season is not fixed. Comparing the years before, during and after the
+          2021 lockdown shows the curve flattening — and then re-forming with a new shape.
+          All three panels share one scale, so the heights are honestly comparable.
+        </p>
+      </div>
+
+      <!-- CHART 10: Era small-multiples (Pre / During / After) -->
+      <div class="chart-block">
+        <div class="chart-label">
+          <h3 class="chart-title">How the season changed after lockdown</h3>
+          <p class="chart-subtitle">Average weekly cases by month · three eras on one scale · teal = monsoon</p>
+        </div>
+        <div id="chart10" class="chart-embed"></div>
+        <!-- ANNOTATIONS: "Lockdown flattened the curve" · "After: the peak shifts earlier" -->
+        <p class="chart-source">Source: OpenDengue · Ministry of Health Malaysia</p>
+      </div>
+    </section>
+
+    <!---->
+    <!-- SECTION 3 — THE CAUSE                                        -->
+    <!--   Why that timing — and how much warning do we get?         -->
+    <!-- -->
+    <section class="section" id="s3">
+      <div class="section-head">
+        <span class="section-num">3</span>
+        <div>
+          <span class="section-tag">The cause</span>
+          <h2 class="section-q">Why that timing — and how much warning do we get?</h2>
+        </div>
+      </div>
+
+      <p class="lede">
+        Dengue outbreaks are not instant reactions to a storm. Rain leaves standing water;
+        mosquitoes breed; the virus incubates. That chain takes time — which means the rain
+        gives us a warning window before the cases arrive.
+      </p>
+
+      <!-- CHART 3: Rainfall (top) vs cases (bottom), shared time axis -->
+      <div class="chart-block">
+        <div class="chart-label">
+          <h3 class="chart-title">Rain first, cases later</h3>
+          <p class="chart-subtitle">Monthly rainfall (top) and dengue cases (bottom) · shared timeline · 2014–2022</p>
+        </div>
+        <div id="chart3" class="chart-embed"></div>
+        <!-- ANNOTATION: "Every rain peak is followed by a case peak — about two months behind." -->
+        <p class="chart-source">Source: Open-Meteo Historical Weather API (ERA5) · OpenDengue</p>
+      </div>
+
+      <div class="narrative">
+        <p>
+          Line the two curves up and the gap becomes a number. Shift the case curve back by
+          about eight weeks and it locks onto the rainfall curve — a roughly two-month fuse
+          between a wet month and the outbreak it feeds.
+        </p>
+      </div>
+
+      <!-- CHART 4: 8-week overlay — rainfall vs cases-shifted-back, normalised. -->
+      <div class="chart-block">
+        <div class="chart-label">
+          <h3 class="chart-title">About two months' warning</h3>
+          <p class="chart-subtitle">Seasonal rainfall vs the dengue cases that follow ~2 months later · each scaled to its own range</p>
+        </div>
+        <div id="chart4" class="chart-embed"></div>
+        <!-- ANNOTATION: "Shift cases back ~2 months and the curves match." -->
+        <p class="chart-source">Source: Open-Meteo · OpenDengue</p>
+      </div>
+    </section>
+
+    <!---->
+    <!-- SECTION 4 — THE GEOGRAPHY     -->
+    <!-- Q: Where is the risk highest?   -->
+    <!---->
+    <section class="section section--alt" id="s4">
+      <div class="section-head">
+        <span class="section-num">4</span>
+        <div>
+          <span class="section-tag">The geography</span>
+          <h2 class="section-q">Where is the risk highest?</h2>
+        </div>
+      </div>
+
+      <p class="lede">
+        Dengue does not spread evenly. It concentrates in dense, fast-growing states — and
+        one state, Selangor, carries more than half the national burden.
+      </p>
+
+      <!-- CHART 5: incidence-per-100k choropleth, interactive year slider. -->
+      <div class="chart-block chart-block--feature">
+        <div class="chart-label">
+          <h3 class="chart-title">Dengue risk by state, per person</h3>
+          <p class="chart-subtitle">Reported cases per 100,000 residents · drag the slider to change year</p>
+        </div>
+        <div id="chart5" class="chart-embed"></div>
+        <!-- ANNOTATION: "Selangor: ~762 per 100,000 — far above anywhere else." -->
+        <p class="chart-source">Source: OpenDengue · OpenDOSM · geoBoundaries ADM1 (CC-BY 4.0)</p>
+      </div>
+
+      <div class="narrative">
+        <p>
+          Does a bigger population simply mean more cases? Not quite. Plotting each state’s
+          infection <em>rate</em> against its size shows Selangor and Kuala Lumpur sitting
+          well above the trend — high risk even after accounting for how many people live
+          there — while the Borneo states sit below it.
+        </p>
+      </div>
+
+      <!-- CHART 6: Population (log) vs incidence bubble -->
+      <div class="chart-block">
+        <div class="chart-label">
+          <h3 class="chart-title">Population size isn't the whole story</h3>
+          <p class="chart-subtitle">Population (log scale) vs cases per 100,000 · bubble size = total cases, 2014–2023</p>
+        </div>
+        <div id="chart6" class="chart-embed"></div>
+        <!-- ANNOTATION: "Above the line = denser risk than population alone explains." -->
+        <p class="chart-source">Source: OpenDengue · OpenDOSM</p>
+      </div>
+
+      <div class="narrative">
+        <p>
+          Seen across the whole decade, the imbalance is structural. Selangor never drops
+          below 45% of all national cases — a concentration that points to urban density and
+          construction-site water, not weather, as the driver.
+        </p>
+      </div>
+
+      <!-- CHART 8: State × year heatmap + marginal share bar -->
+      <div class="chart-block chart-block--feature">
+        <div class="chart-label">
+          <h3 class="chart-title">Every state, every year</h3>
+          <p class="chart-subtitle">Annual cases by state · right column = each state's share of the decade · 2022 state data not published</p>
+        </div>
+        <div id="chart8" class="chart-embed"></div>
+        <!-- ANNOTATION : "Selangor alone accounts for over half of all cases." -->
+        <p class="chart-source">Source: OpenDengue · Ministry of Health Malaysia</p>
+      </div>
+    </section>
+
+    <!-- -->
+    <!-- SECTION 5 — THE RESPONSE                                     -->
+    <!-- Can we do anything about it?? -->
+    <!-- -->
+    <section class="section" id="s5">
+      <div class="section-head">
+        <span class="section-num">5</span>
+        <div>
+          <span class="section-tag">The response</span>
+          <h2 class="section-q">Can we do anything about it?</h2>
+        </div>
+      </div>
+
+      <p class="lede">
+        If rain and rhythm decided everything, 2020–2021 should have been ordinary. Instead
+        cases fell across every state at once. The reason wasn’t in the sky — it was in the
+        streets. Movement-control orders kept people home, and dengue fell with them.
+      </p>
+
+      <blockquote class="pull">
+        Weather sets the stage.<br>
+        <em>Human behaviour writes the script.</em>
+      </blockquote>
+
+      <div class="narrative">
+        <p>
+          The ranking of the worst-hit states makes the volatility visible. Selangor never
+          leaves the top spot — but the fight for second through fifth shifts constantly,
+          which means an outbreak can flare almost anywhere.
+        </p>
+      </div>
+
+      <!-- CHART_BUMP: -->
+      <div class="chart-block">
+        <div class="chart-label">
+          <h3 class="chart-title">Selangor tops the table every year</h3>
+          <p class="chart-subtitle">Annual rank of the three perennial top-five states · rank 1 = most cases</p>
+        </div>
+        <div id="chart_bump" class="chart-embed"></div>
+        <!-- ANNOTATION: "Selangor #1 every year. Ranks 2–5 swap constantly." -->
+        <p class="chart-source">Source: Ministry of Health Malaysia · OpenDengue v1.3</p>
+      </div>
+
+      <div class="narrative">
+        <p>
+          There is one more reason outbreaks keep returning: the virus itself changes. Four
+          dengue strains circulate, and when a new one takes over, people have little
+          immunity and cases spike. DENV2 drove the 2015 epidemic; DENV1 now makes up about
+          half of circulating strains — a warning for the next wave.
+        </p>
+      </div>
+
+      <!-- CHART 9: Serotype 100% stacked area with milestone annotations. KEEP. -->
+      <div class="chart-block">
+        <div class="chart-label">
+          <h3 class="chart-title">The virus keeps changing strains</h3>
+          <p class="chart-subtitle">Share of each circulating dengue strain per year · 2015–2023</p>
+        </div>
+        <div id="chart9" class="chart-embed"></div>
+        <!-- ANNOTATIONS: "DENV2 — 2015 epidemic" · "DENV1 ~50% now — rebound risk" -->
+        <p class="chart-source">Source: Chem et al. (2024), Frontiers in Genetics (CC-BY 4.0)</p>
+      </div>
+
+      <p class="closing">
+        It rains. Weeks later, the hospitals fill up. But in 2021 the rule broke — proof
+        that what we do matters as much as what the sky does. Remove standing water. Watch
+        the season and the forecast. Act in the warning window, before the wave arrives.
+      </p>
+    </section>
+
+  </main>
+
+  <!-- -->
+  <!-- FOOTER -->
+  <!-- -->
+  <footer>
+    <div class="fgrid">
+      <div>
+        <h4>Data sources</h4>
+        <p>
+          Dengue cases — OpenDengue v1.3 (Clarke et al. 2025, CC-BY 4.0) + Ministry of Health Malaysia iDengue.<br>
+          Rainfall &amp; temperature — Open-Meteo Historical Weather API (ERA5, open licence).<br>
+          Population — OpenDOSM, Department of Statistics Malaysia (open licence).<br>
+          Serotypes — Chem et al. (2024), Frontiers in Genetics (CC-BY 4.0).<br>
+          State boundaries — geoBoundaries ADM1 (CC-BY 4.0).
+        </p>
+      </div>
+      <div>
+        <h4>About</h4>
+        <p>
+          Created by Absaar · FIT2179 Data Visualisation 2 · Monash University Malaysia · 2026.<br>
+          Built with Vega-Lite , HTML &amp; CSS.<br>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  const opts = { actions: false, renderer: "svg" };
+  
+  vegaEmbed("#chart1",     "vega-lite/chart1.json",     opts).catch(console.error); // S1 annual area
+  vegaEmbed("#chart_cfr",  "vega-lite/chart_cfr.json",  opts).catch(console.error); // S1 CFR dot-line
+  vegaEmbed("#chart11",    "vega-lite/chart11.json",    opts).catch(console.error); // S2 climatology
+  vegaEmbed("#chart10",    "vega-lite/chart10.json",    opts).catch(console.error); // S2 era small-multiples
+  vegaEmbed("#chart3",     "vega-lite/chart3.json",     opts).catch(console.error); // S3 rainfall vs cases
+  vegaEmbed("#chart4",     "vega-lite/chart4.json",     opts).catch(console.error); // S3 8-week overlay (REBUILD)
+  vegaEmbed("#chart5",     "vega-lite/chart5.json",     opts).catch(console.error); // S4 MAP (REBUILD)
+  vegaEmbed("#chart6",     "vega-lite/chart6.json",     opts).catch(console.error); // S4 bubble
+  vegaEmbed("#chart8",     "vega-lite/chart8.json",     opts).catch(console.error); // S4 heatmap + share
+  vegaEmbed("#chart_bump", "vega-lite/chart_bump.json", opts).catch(console.error); // S5 bump (REBUILD)
+  vegaEmbed("#chart9",     "vega-lite/chart9.json",     opts).catch(console.error); // S5 serotype area
+</script>
+
+</body>
+</html>
