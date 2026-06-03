@@ -1,0 +1,176 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 340,
+  "background": null,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "values": [
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Jan", "cases": 2460 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Feb", "cases": 2299 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Mar", "cases": 1873 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Apr", "cases": 1517 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "May", "cases": 1728 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Jun", "cases": 2107 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Jul", "cases": 2356 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Aug", "cases": 2235 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Sep", "cases": 1848 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Oct", "cases": 1658 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Nov", "cases": 1906 },
+      { "era": "Pre-COVID", "endLabel": "Pre-COVID", "fullLabel": "Pre-COVID (2014–2019)", "month": "Dec", "cases": 2221 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Jan", "cases": 1762 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Feb", "cases": 1653 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Mar", "cases": 1215 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Apr", "cases": 860 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "May", "cases": 1066 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Jun", "cases": 1310 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Jul", "cases": 1261 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Aug", "cases": 1067 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Sep", "cases": 886 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Oct", "cases": 758 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Nov", "cases": 734 },
+      { "era": "COVID", "endLabel": "COVID", "fullLabel": "COVID (2020–2021)", "month": "Dec", "cases": 691 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Jan", "cases": 722 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Feb", "cases": 664 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Mar", "cases": 688 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Apr", "cases": 986 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "May", "cases": 1177 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Jun", "cases": 1471 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Jul", "cases": 1558 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Aug", "cases": 1357 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Sep", "cases": 1405 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Oct", "cases": 1525 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Nov", "cases": 1684 },
+      { "era": "Post-COVID", "endLabel": "Post-COVID", "fullLabel": "Post-COVID (2022)", "month": "Dec", "cases": 1952 }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      "title": null,
+      "scale": { "padding": 0.18 },
+      "axis": {
+        "labelFont": "Archivo",
+        "labelFontSize": 11,
+        "labelColor": "#5A5550",
+        "labelAngle": 0,
+        "domainColor": "#D8D2C8",
+        "ticks": false,
+        "labelPadding": 10
+      }
+    },
+    "y": {
+      "field": "cases",
+      "type": "quantitative",
+      "title": "Average cases per week",
+      "scale": { "domain": [0, 2600] },
+      "axis": {
+        "format": "~s",
+        "tickCount": 4,
+        "titleFont": "Archivo",
+        "titleFontSize": 10,
+        "titleColor": "#8C827A",
+        "titleFontWeight": 600,
+        "labelFont": "Archivo",
+        "labelFontSize": 10,
+        "labelColor": "#8C827A",
+        "grid": true,
+        "gridColor": "#F0ECE4",
+        "domain": false,
+        "ticks": false,
+        "titlePadding": 12,
+        "labelPadding": 8
+      }
+    },
+    "color": {
+      "field": "era",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Pre-COVID", "COVID", "Post-COVID"],
+        "range": ["#B7AEA1", "#E69F00", "#B5121B"]
+      },
+      "legend": null
+    }
+  },
+  "layer": [
+    {
+      "description": "Base Trend Lines Layer",
+      "mark": { "type": "line", "strokeWidth": 3, "interpolate": "monotone" }
+    },
+    {
+      "description": "Interactive Data Points Layer",
+      "mark": { "type": "point", "filled": true, "size": 42, "opacity": 0.9, "stroke": "#FFFFFF", "strokeWidth": 1 },
+      "encoding": {
+        "tooltip": [
+          { "field": "fullLabel", "title": "Period" },
+          { "field": "month", "title": "Month" },
+          { "field": "cases", "title": "Avg cases/week", "format": "," }
+        ]
+      }
+    },
+    {
+      "description": "Right Edge Series Tags Layer",
+      "transform": [ { "filter": "datum.month=='Dec'" } ],
+      "mark": { "type": "text", "align": "left", "dx": 9, "baseline": "middle", "font": "Archivo", "fontSize": 11.5, "fontWeight": 700 },
+      "encoding": { "text": { "field": "endLabel" } }
+    },
+    {
+      "description": "Corrected Clean Multi-line Charcoal Black Valley Annotation Layer",
+      "data": {
+        "values": [
+          { "month": "Aug", "cases": 1067 }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "font": "Archivo",
+        "fontSize": 10.5,
+        "fontWeight": 600,
+        "lineHeight": 13,
+        "color": "#1C1714",
+        "dy": 75
+      },
+      "encoding": {
+        "x": { "field": "month", "type": "ordinal" },
+        "y": { "field": "cases", "type": "quantitative" },
+        "text": {
+          "value": [
+            "Lockdowns and limited mobility crushed",
+            "transmission late in the year."
+          ]
+        },
+        "color": null
+      }
+    },
+    {
+      "description": "Post-COVID Peak Shift Highlight Layer",
+      "data": {
+        "values": [
+          { "month": "Nov", "cases": 2150, "t": "2022 peak shifts to December" }
+        ]
+      },
+      "mark": { "type": "text", "align": "right", "dx": -2, "font": "Archivo", "fontSize": 11, "fontWeight": 700, "color": "#B5121B" },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
+        },
+        "y": { "field": "cases", "type": "quantitative" },
+        "text": { "field": "t" }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "font": "Archivo",
+    "padding": { "right": 74 }
+  }
+}

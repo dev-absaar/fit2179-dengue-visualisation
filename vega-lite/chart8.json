@@ -1,0 +1,528 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/dengue_states_complete.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.year === 2023 ? '2023*' : toString(datum.year)",
+      "as": "year_label"
+    }
+  ],
+  "spacing": 6,
+  "hconcat": [
+    {
+      "width": 500,
+      "height": 400,
+      "layer": [
+        {
+          "mark": {
+            "type": "rect",
+            "stroke": "#FFFFFF",
+            "strokeWidth": 1.5
+          },
+          "encoding": {
+            "x": {
+              "field": "year_label",
+              "type": "ordinal",
+              "sort": [
+                "2014",
+                "2015",
+                "2016",
+                "2017",
+                "2018",
+                "2019",
+                "2020",
+                "2021",
+                "2023*"
+              ],
+              "title": null,
+              "axis": {
+                "orient": "top",
+                "labelFont": "Archivo",
+                "labelFontSize": 13,
+                "labelFontWeight": 600,
+                "labelColor": "#5C534B",
+                "labelAngle": 0,
+                "grid": false,
+                "tickSize": 0,
+                "domainColor": "#D8CBB6"
+              }
+            },
+            "y": {
+              "field": "state",
+              "type": "nominal",
+              "sort": [
+                "Selangor",
+                "WP Kuala Lumpur",
+                "Johor",
+                "Kelantan",
+                "Perak",
+                "Pulau Pinang",
+                "Sabah",
+                "Negeri Sembilan",
+                "Pahang",
+                "Melaka",
+                "Kedah",
+                "Sarawak",
+                "Terengganu",
+                "Perlis",
+                "W.P. Labuan"
+              ],
+              "title": null,
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 13,
+                "labelFontWeight": 500,
+                "labelColor": "#1C1714",
+                "grid": false,
+                "tickSize": 0,
+                "domain": true,
+                "domainColor": "#D8CBB6",
+                "domainWidth": 1.5
+              }
+            },
+            "color": {
+              "field": "cases",
+              "type": "quantitative",
+              "scale": {
+                "type": "threshold",
+                "domain": [
+                  1000,
+                  2500,
+                  5000,
+                  12000,
+                  35000
+                ],
+                "range": [
+                  "#FFF7EC",
+                  "#FEE8C8",
+                  "#FDD49E",
+                  "#FC8D59",
+                  "#D7301F",
+                  "#7F0000"
+                ]
+              },
+              "legend": {
+                "orient": "bottom",
+                "direction": "horizontal",
+                "gradientLength": 320,
+                "gradientThickness": 10,
+                "titleFont": "Archivo",
+                "titleFontSize": 12,
+                "titleColor": "#5C534B",
+                "titleFontWeight": 600,
+                "labelFont": "Archivo",
+                "labelFontSize": 12,
+                "labelColor": "#5C534B",
+                "format": "~s",
+                "title": "Annual reported cases"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "state",
+                "type": "nominal",
+                "title": "State"
+              },
+              {
+                "field": "year",
+                "type": "ordinal",
+                "title": "Year"
+              },
+              {
+                "field": "cases",
+                "type": "quantitative",
+                "title": "Cases",
+                "format": ","
+              }
+            ]
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.state === 'Selangor' && datum.year === 2019"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontSize": 10.5,
+            "font": "Archivo",
+            "fontWeight": "bold",
+            "color": "#FFF7EC",
+            "align": "center",
+            "baseline": "middle"
+          },
+          "encoding": {
+            "x": {
+              "field": "year_label",
+              "type": "ordinal",
+              "sort": [
+                "2014",
+                "2015",
+                "2016",
+                "2017",
+                "2018",
+                "2019",
+                "2020",
+                "2021",
+                "2023*"
+              ]
+            },
+            "y": {
+              "field": "state",
+              "type": "nominal",
+              "sort": [
+                "Selangor",
+                "WP Kuala Lumpur",
+                "Johor",
+                "Kelantan",
+                "Perak",
+                "Pulau Pinang",
+                "Sabah",
+                "Negeri Sembilan",
+                "Pahang",
+                "Melaka",
+                "Kedah",
+                "Sarawak",
+                "Terengganu",
+                "Perlis",
+                "W.P. Labuan"
+              ]
+            },
+            "text": {
+              "value": "72,543 peak"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.state === 'Selangor' && datum.year === 2021"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "fontSize": 10.5,
+            "font": "Archivo",
+            "fontStyle": "italic",
+            "color": "#1C1714",
+            "align": "center",
+            "baseline": "middle",
+            "dy": 22
+          },
+          "encoding": {
+            "x": {
+              "field": "year_label",
+              "type": "ordinal",
+              "sort": [
+                "2014",
+                "2015",
+                "2016",
+                "2017",
+                "2018",
+                "2019",
+                "2020",
+                "2021",
+                "2023*"
+              ]
+            },
+            "y": {
+              "field": "state",
+              "type": "nominal",
+              "sort": [
+                "Selangor",
+                "WP Kuala Lumpur",
+                "Johor",
+                "Kelantan",
+                "Perak",
+                "Pulau Pinang",
+                "Sabah",
+                "Negeri Sembilan",
+                "Pahang",
+                "Melaka",
+                "Kedah",
+                "Sarawak",
+                "Terengganu",
+                "Perlis",
+                "W.P. Labuan"
+              ]
+            },
+            "text": {
+              "value": "← Lockdown collapse"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": 200,
+      "height": 400,
+      "transform": [
+        {
+          "aggregate": [
+            {
+              "op": "sum",
+              "field": "cases",
+              "as": "total"
+            }
+          ],
+          "groupby": [
+            "state"
+          ]
+        },
+        {
+          "calculate": "datum.total / 865258",
+          "as": "share"
+        }
+      ],
+      "layer": [
+        {
+          "mark": {
+            "type": "bar",
+            "color": "#B5121B",
+            "opacity": 0.85,
+            "cornerRadiusEnd": 2
+          },
+          "encoding": {
+            "x": {
+              "field": "total",
+              "type": "quantitative",
+              "title": [
+                "Total cases",
+                "(% share shown at right)"
+              ],
+              "axis": {
+                "orient": "top",
+                "labelFont": "Archivo",
+                "labelFontSize": 12,
+                "labelColor": "#5C534B",
+                "titleFont": "Archivo",
+                "titleFontSize": 14,
+                "titleColor": "#5C534B",
+                "titleFontWeight": 600,
+                "grid": true,
+                "gridColor": "#E8E3DA",
+                "gridDash": [
+                  3,
+                  3
+                ],
+                "domain": false,
+                "ticks": false,
+                "format": "~s"
+              }
+            },
+            "y": {
+              "field": "state",
+              "type": "nominal",
+              "sort": [
+                "Selangor",
+                "WP Kuala Lumpur",
+                "Johor",
+                "Kelantan",
+                "Perak",
+                "Pulau Pinang",
+                "Sabah",
+                "Negeri Sembilan",
+                "Pahang",
+                "Melaka",
+                "Kedah",
+                "Sarawak",
+                "Terengganu",
+                "Perlis",
+                "W.P. Labuan"
+              ],
+              "axis": null
+            },
+            "tooltip": [
+              {
+                "field": "state",
+                "type": "nominal",
+                "title": "State"
+              },
+              {
+                "field": "total",
+                "type": "quantitative",
+                "title": "Total cases",
+                "format": ","
+              },
+              {
+                "field": "share",
+                "type": "quantitative",
+                "title": "Share",
+                "format": ".1%"
+              }
+            ]
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 4,
+            "fontSize": 12.5,
+            "font": "Archivo",
+            "fontWeight": 500
+          },
+          "encoding": {
+            "x": {
+              "field": "total",
+              "type": "quantitative"
+            },
+            "y": {
+              "field": "state",
+              "type": "nominal",
+              "sort": [
+                "Selangor",
+                "WP Kuala Lumpur",
+                "Johor",
+                "Kelantan",
+                "Perak",
+                "Pulau Pinang",
+                "Sabah",
+                "Negeri Sembilan",
+                "Pahang",
+                "Melaka",
+                "Kedah",
+                "Sarawak",
+                "Terengganu",
+                "Perlis",
+                "W.P. Labuan"
+              ]
+            },
+            "text": {
+              "field": "share",
+              "type": "quantitative",
+              "format": ".1%"
+            },
+            "color": {
+              "condition": {
+                "test": "datum.share > 0.30",
+                "value": "#7C0C13"
+              },
+              "value": "#5C534B"
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.state === 'Selangor'"
+            }
+          ],
+          "mark": {
+            "type": "rule",
+            "color": "#7C0C13",
+            "strokeWidth": 1.1,
+            "strokeDash": [
+              3,
+              3
+            ]
+          },
+          "encoding": {
+            "x": {
+              "value": 110
+            },
+            "x2": {
+              "value": 190
+            },
+            "y": {
+              "field": "state",
+              "type": "nominal",
+              "sort": [
+                "Selangor",
+                "WP Kuala Lumpur",
+                "Johor",
+                "Kelantan",
+                "Perak",
+                "Pulau Pinang",
+                "Sabah",
+                "Negeri Sembilan",
+                "Pahang",
+                "Melaka",
+                "Kedah",
+                "Sarawak",
+                "Terengganu",
+                "Perlis",
+                "W.P. Labuan"
+              ]
+            },
+            "y2": {
+              "value": 140
+            }
+          }
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.state === 'Sabah'"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "middle",
+            "dx": 65,
+            "dy": 0,
+            "lineHeight": 14,
+            "font": "Archivo",
+            "fontSize": 11,
+            "fontStyle": "italic",
+            "fontWeight": 600,
+            "color": "#7C0C13",
+            "text": [
+              "Selangor alone accounts for",
+              "over half of all cases nationwide"
+            ]
+          },
+          "encoding": {
+            "x": {
+              "value": 0
+            },
+            "y": {
+              "field": "state",
+              "type": "nominal",
+              "sort": [
+                "Selangor",
+                "WP Kuala Lumpur",
+                "Johor",
+                "Kelantan",
+                "Perak",
+                "Pulau Pinang",
+                "Sabah",
+                "Negeri Sembilan",
+                "Pahang",
+                "Melaka",
+                "Kedah",
+                "Sarawak",
+                "Terengganu",
+                "Perlis",
+                "W.P. Labuan"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "padding": {
+      "top": 20,
+      "right": 60,
+      "bottom": 24,
+      "left": 16
+    },
+    "concat": {
+      "spacing": 6
+    }
+  }
+}

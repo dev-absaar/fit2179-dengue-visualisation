@@ -1,0 +1,115 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "background": "transparent",
+  "autosize": { "type": "fit", "contains": "padding" },
+  "title": {
+    "subtitle": [
+      "Average rainfall and dengue across the year. The dengue line is shifted back 8 weeks — then it tracks the rain.", 
+      "Each line is scaled to its own low–high range so the shapes can be compared."
+    ],
+    "font": "Fraunces", "fontSize": 16, "fontWeight": 700,
+    "subtitleFont": "Archivo", "subtitleFontSize": 11, "subtitleLineHeight": 15,
+    "color": "#0F0D0B", "subtitleColor": "#5A5550",
+    "anchor": "start", "offset": 12, "subtitlePadding": 4
+  },
+  "data": {
+    "values": [
+      { "mi": 1,  "m": "Jan", "series": "Rainfall",              "v": 0.39 },
+      { "mi": 2,  "m": "Feb", "series": "Rainfall",              "v": 0.00 },
+      { "mi": 3,  "m": "Mar", "series": "Rainfall",              "v": 0.31 },
+      { "mi": 4,  "m": "Apr", "series": "Rainfall",              "v": 0.58 },
+      { "mi": 5,  "m": "May", "series": "Rainfall",              "v": 0.55 },
+      { "mi": 6,  "m": "Jun", "series": "Rainfall",              "v": 0.19 },
+      { "mi": 7,  "m": "Jul", "series": "Rainfall",              "v": 0.17 },
+      { "mi": 8,  "m": "Aug", "series": "Rainfall",              "v": 0.19 },
+      { "mi": 9,  "m": "Sep", "series": "Rainfall",              "v": 0.39 },
+      { "mi": 10, "m": "Oct", "series": "Rainfall",              "v": 0.48 },
+      { "mi": 11, "m": "Nov", "series": "Rainfall",              "v": 1.00 },
+      { "mi": 12, "m": "Dec", "series": "Rainfall",              "v": 0.83 },
+      { "mi": 1,  "m": "Jan", "series": "Dengue (8 weeks later)", "v": 0.42 },
+      { "mi": 2,  "m": "Feb", "series": "Dengue (8 weeks later)", "v": 0.00 },
+      { "mi": 3,  "m": "Mar", "series": "Dengue (8 weeks later)", "v": 0.34 },
+      { "mi": 4,  "m": "Apr", "series": "Dengue (8 weeks later)", "v": 0.63 },
+      { "mi": 5,  "m": "May", "series": "Dengue (8 weeks later)", "v": 0.94 },
+      { "mi": 6,  "m": "Jun", "series": "Dengue (8 weeks later)", "v": 0.72 },
+      { "mi": 7,  "m": "Jul", "series": "Dengue (8 weeks later)", "v": 0.32 },
+      { "mi": 8,  "m": "Aug", "series": "Dengue (8 weeks later)", "v": 0.22 },
+      { "mi": 9,  "m": "Sep", "series": "Dengue (8 weeks later)", "v": 0.38 },
+      { "mi": 10, "m": "Oct", "series": "Dengue (8 weeks later)", "v": 0.61 },
+      { "mi": 11, "m": "Nov", "series": "Dengue (8 weeks later)", "v": 1.00 },
+      { "mi": 12, "m": "Dec", "series": "Dengue (8 weeks later)", "v": 0.63 }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "m", "type": "ordinal",
+      "sort": ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+      "title": null,
+      "axis": { "labelFont": "Archivo", "labelFontSize": 11, "labelColor": "#5A5550", "labelAngle": 0, "domainColor": "#D8D2C8", "ticks": false }
+    },
+    "y": {
+      "field": "v", "type": "quantitative",
+      "scale": { "domain": [0, 1.15] },
+      "title": "Seasonal level  (low → high)",
+      "axis": { "titleFont": "Archivo", "titleFontSize": 10, "titleColor": "#8C827A", "titleFontWeight": 600, "labels": false, "ticks": false, "domain": false, "grid": false }
+    },
+    "color": {
+      "field": "series", "type": "nominal",
+      "scale": { "domain": ["Rainfall", "Dengue (8 weeks later)"], "range": ["#1F6E7A", "#B5121B"] },
+      "legend": { "title": null, "orient": "top", "labelFont": "Archivo", "labelFontSize": 11, "symbolType": "stroke", "symbolStrokeWidth": 3 }
+    }
+  },
+  "layer": [
+    {
+      "description": "Full-height vertical baseline guides (Feb, May, Nov)",
+      "data": { "values": [ {"m": "Feb"}, {"m": "May"}, {"m": "Nov"} ] },
+      "mark": { "type": "rule", "strokeDash": [4, 4], "color": "#DCD5CC", "strokeWidth": 1.2 },
+      "encoding": {
+        "x": { "field": "m", "type": "ordinal" },
+        "color": null,
+        "y": null
+      }
+    },
+    { "mark": { "type": "line", "interpolate": "monotone", "strokeWidth": 2.5 } },
+    { "mark": { "type": "point", "filled": true, "size": 38, "opacity": 1 } },
+    {
+      "description": "February Low Annotation — Pushed high to precisely align with the height of the May comment",
+      "data": { "values": [ { "m": "Feb", "v": 1.10 } ] },
+      "mark": { "type": "text", "align": "center", "baseline": "top", "font": "Archivo", "fontSize": 10.5, "fontWeight": 600, "lineHeight": 13 },
+      "encoding": {
+        "x": { "field": "m", "type": "ordinal" },
+        "y": { "field": "v", "type": "quantitative" },
+        "text": { "value": ["Dry sky in Feb means", "fewer cases 2 months later."] },
+        "color": { "value": "#5A5550" }
+      }
+    },
+    {
+      "description": "May/June Gap Annotation — Hardcoded ceiling y anchor to sit perfectly over the curve gap",
+      "data": { "values": [ { "m": "May", "v": 1.10 } ] },
+      "mark": { "type": "text", "align": "left", "baseline": "top", "dx": 14, "font": "Archivo", "fontSize": 10.5, "fontWeight": 600, "lineHeight": 13 },
+      "encoding": {
+        "x": { "field": "m", "type": "ordinal" },
+        "y": { "field": "v", "type": "quantitative" },
+        "text": { "value": ["Cases spike slightly in May,", "even without heavy rain."] },
+        "color": { "value": "#5A5550" }
+      }
+    },
+    {
+      "description": "November Peak Annotation — Remains placed cleanly to the left of the main peak",
+      "data": { "values": [ { "m": "Nov", "v": 1.0 } ] },
+      "mark": { "type": "text", "align": "right", "baseline": "bottom", "dx": -14, "dy": -8, "font": "Archivo", "fontSize": 10.5, "fontWeight": 600, "lineHeight": 13 },
+      "encoding": {
+        "x": { "field": "m", "type": "ordinal" },
+        "y": { "field": "v", "type": "quantitative" },
+        "text": { "value": ["Nov monsoon rain perfectly predicts", "the massive outbreak 8 weeks later."] },
+        "color": { "value": "#5A5550" }
+      }
+    }
+  ],
+  "config": { 
+    "view": { "stroke": null, "fill": "transparent" }, 
+    "font": "Archivo" 
+  }
+}

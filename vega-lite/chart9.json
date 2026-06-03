@@ -1,0 +1,306 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 440,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/serotypes.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "transform": [
+    {
+      "fold": [
+        "DENV1",
+        "DENV2",
+        "DENV3",
+        "DENV4"
+      ],
+      "as": [
+        "serotype",
+        "percent"
+      ]
+    },
+    {
+      "calculate": "toNumber(datum.percent)",
+      "as": "percent"
+    },
+    {
+      "calculate": "datum.percent / 100",
+      "as": "normalized_percent"
+    }
+  ],
+  "layer": [
+    {
+      "params": [
+        {
+          "name": "highlight",
+          "select": {
+            "type": "point",
+            "fields": [
+              "serotype"
+            ],
+            "on": "click"
+          },
+          "bind": "legend"
+        }
+      ],
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone",
+        "stroke": "#FBF6EC",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelFont": "Archivo",
+            "labelFontSize": 12,
+            "labelFontWeight": 600,
+            "labelColor": "#5C534B",
+            "labelAngle": 0,
+            "grid": false,
+            "tickSize": 0,
+            "domainColor": "#D8CBB6"
+          }
+        },
+        "y": {
+          "field": "normalized_percent",
+          "type": "quantitative",
+          "stack": "normalize",
+          "title": "Share of circulating serotypes",
+          "axis": {
+            "format": "%",
+            "labelFont": "Archivo",
+            "labelFontSize": 11,
+            "labelColor": "#5C534B",
+            "titleFont": "Archivo",
+            "titleFontSize": 12,
+            "titleColor": "#5C534B",
+            "titleFontWeight": 600,
+            "titlePadding": 10,
+            "grid": true,
+            "gridColor": "#D8CBB6",
+            "gridDash": [
+              3,
+              3
+            ],
+            "domain": false,
+            "ticks": false,
+            "minExtent": 40
+          }
+        },
+        "color": {
+          "field": "serotype",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "DENV1",
+              "DENV2",
+              "DENV3",
+              "DENV4"
+            ],
+            "range": [
+              "#E69F00",
+              "#56B4E9",
+              "#009E73",
+              "#D55E00"
+            ]
+          },
+          "legend": {
+            "title": "Click to isolate serotype",
+            "titleFont": "Archivo",
+            "titleFontSize": 11,
+            "titleColor": "#5C534B",
+            "titleFontWeight": 600,
+            "labelFont": "Archivo",
+            "labelFontSize": 12,
+            "labelColor": "#1C1714",
+            "orient": "top",
+            "direction": "horizontal",
+            "symbolType": "square",
+            "symbolSize": 120,
+            "padding": 10
+          }
+        },
+        "opacity": {
+          "condition": {
+            "param": "highlight",
+            "value": 0.88
+          },
+          "value": 0.12
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "serotype",
+            "type": "nominal",
+            "title": "Serotype"
+          },
+          {
+            "field": "percent",
+            "type": "quantitative",
+            "title": "Share (%)",
+            "format": ".0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": "2015"
+          },
+          {
+            "year": "2017"
+          },
+          {
+            "year": "2019"
+          },
+          {
+            "year": "2021"
+          },
+          {
+            "year": "2023"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [
+          4,
+          3
+        ],
+        "color": "#5C534B",
+        "opacity": 0.3,
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": "2015",
+            "label": "DENV2 62% —"
+          },
+          {
+            "year": "2017",
+            "label": "DENV1 resurges"
+          },
+          {
+            "year": "2019",
+            "label": "DENV1+DENV2 tied"
+          },
+          {
+            "year": "2021",
+            "label": "COVID"
+          },
+          {
+            "year": "2023",
+            "label": "DENV1 50% —"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 10.5,
+        "font": "Archivo",
+        "fontWeight": 600,
+        "color": "#1C1714",
+        "dx": 4
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "value": 14
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": "2015",
+            "label2": "deadliest year"
+          },
+          {
+            "year": "2017",
+            "label2": "to 48%"
+          },
+          {
+            "year": "2019",
+            "label2": "130k case record"
+          },
+          {
+            "year": "2021",
+            "label2": "lockdown"
+          },
+          {
+            "year": "2023",
+            "label2": "rebound risk"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 10.5,
+        "font": "Archivo",
+        "fontStyle": "italic",
+        "color": "#5C534B",
+        "dx": 4
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "value": 27
+        },
+        "text": {
+          "field": "label2"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "padding": {
+      "top": 20,
+      "right": 24,
+      "bottom": 20,
+      "left": 16
+    }
+  }
+}

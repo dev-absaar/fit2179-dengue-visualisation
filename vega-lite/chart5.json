@@ -1,0 +1,470 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 480,
+  "background": null,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "params": [
+    {
+      "name": "yearSel",
+      "value": 2023,
+      "bind": {
+        "input": "range",
+        "min": 2014,
+        "max": 2023,
+        "step": 1,
+        "name": "Year  "
+      }
+    }
+  ],
+  "projection": {
+    "type": "mercator"
+  },
+  "layer": [
+    {
+      "description": "Base — every state drawn grey so no-data areas (Putrajaya / 2022) still read as land.",
+      "data": {
+        "url": "data/malay.json",
+        "format": {
+          "type": "topojson",
+          "feature": "malay"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#EFEAE3",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.8
+      }
+    },
+    {
+      "description": "Choropleth — geometry primary; wide table looked up by name; active year picked by calculate.",
+      "data": {
+        "url": "data/malay.json",
+        "format": {
+          "type": "topojson",
+          "feature": "malay"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.shapeName",
+          "from": {
+            "data": {
+              "url": "data/map_data_wide.csv"
+            },
+            "key": "geo_name",
+            "fields": [
+              "state",
+              "inc_2014",
+              "inc_2015",
+              "inc_2016",
+              "inc_2017",
+              "inc_2018",
+              "inc_2019",
+              "inc_2020",
+              "inc_2021",
+              "inc_2023",
+              "cases_2014",
+              "cases_2015",
+              "cases_2016",
+              "cases_2017",
+              "cases_2018",
+              "cases_2019",
+              "cases_2020",
+              "cases_2021",
+              "cases_2023"
+            ]
+          }
+        },
+        {
+          "calculate": "toNumber(datum['inc_' + yearSel])",
+          "as": "incidence"
+        },
+        {
+          "calculate": "toNumber(datum['cases_' + yearSel])",
+          "as": "cases"
+        },
+        {
+          "calculate": "yearSel",
+          "as": "yr"
+        },
+        {
+          "filter": "isValid(datum.incidence) && isFinite(datum.incidence)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 0.8
+      },
+      "encoding": {
+        "color": {
+          "field": "incidence",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              100,
+              200,
+              300,
+              500,
+              800
+            ],
+            "range": [
+              "#FEE5D9",
+              "#FCBBA1",
+              "#FC9272",
+              "#FB6A4A",
+              "#DE2D26",
+              "#A50F15"
+            ]
+          },
+          "legend": {
+            "title": "Cases per 100,000 people",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "titleOrient": "top",
+            "titleAnchor": "start",
+            "titleFont": "Archivo",
+            "titleFontSize": 11,
+            "titleFontWeight": 700,
+            "titleColor": "#5A5550",
+            "titlePadding": 6,
+            "labelFont": "Archivo",
+            "labelFontSize": 10,
+            "labelColor": "#5A5550",
+            "symbolType": "square",
+            "symbolSize": 150,
+            "symbolStrokeWidth": 0,
+            "offset": 18,
+            "padding": 4,
+            "columnPadding": 10,
+            "labelOffset": 4
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "yr",
+            "type": "ordinal",
+            "title": "Year"
+          },
+          {
+            "field": "incidence",
+            "type": "quantitative",
+            "title": "Cases / 100k",
+            "format": ".0f"
+          },
+          {
+            "field": "cases",
+            "type": "quantitative",
+            "title": "Total cases",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "description": "TEMPORAL (tier 2): period stamp in open sea — eyebrow.",
+      "data": {
+        "values": [
+          {
+            "lon": 105.0,
+            "lat": 6.8,
+            "t": "SELECTED YEAR"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "font": "Archivo",
+        "fontSize": 10.5,
+        "fontWeight": 700,
+        "color": "#A89E92"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "TEMPORAL (tier 2): period stamp — dynamic year number.",
+      "data": {
+        "values": [
+          {
+            "lon": 105.0,
+            "lat": 6.15
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "'' + yearSel",
+          "as": "yr"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "font": "Fraunces",
+        "fontSize": 34,
+        "fontWeight": 900,
+        "color": "#C9BEB2"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "yr",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "PRIMARY callout: leader line from the Klang Valley out into the open sea.",
+      "data": {
+        "values": [
+          {
+            "lon": 101.6,
+            "lat": 3.2,
+            "lon2": 104.8,
+            "lat2": 3.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#B5121B",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        }
+      }
+    },
+    {
+      "description": "PRIMARY callout: target dot on Selangor / KL.",
+      "data": {
+        "values": [
+          {
+            "lon": 101.6,
+            "lat": 3.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "color": "#B5121B",
+        "size": 55,
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        }
+      }
+    },
+    {
+      "description": "PRIMARY callout: eyebrow label.",
+      "data": {
+        "values": [
+          {
+            "lon": 105.0,
+            "lat": 3.6,
+            "t": "KLANG VALLEY"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "font": "Archivo",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "#B5121B"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    },
+    {
+      "description": "PRIMARY callout: detail (two lines).",
+      "data": {
+        "values": [
+          {
+            "lon": 105.0,
+            "lat": 3.0,
+            "t": [
+              "Selangor + KL —",
+              "highest risk nationwide"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Archivo",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#4A4540",
+        "lineHeight": 14
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "description": "SUPPORTING (tier 3): single contrast note for East Malaysia.",
+      "data": {
+        "values": [
+          {
+            "lon": 109.5,
+            "lat": 3.6,
+            "t": [
+              "Sabah & Sarawak:",
+              "consistently lower risk"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "font": "Archivo",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "color": "#8C827A",
+        "lineHeight": 13
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t"
+        }
+      }
+    },
+    {
+      "description": "Conditional: only when the slider lands on 2022 (no published state data).",
+      "data": {
+        "values": [
+          {
+            "lon": 106.5,
+            "lat": 4.6,
+            "t": "No state-level data published for 2022"
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "yearSel == 2022"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "middle",
+        "font": "Archivo",
+        "fontSize": 13,
+        "fontWeight": 600,
+        "color": "#8C827A"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "t",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Archivo"
+  }
+}

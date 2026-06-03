@@ -1,0 +1,217 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "background": null,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "values": [
+      {
+        "month": "Jan",
+        "avg": 2086,
+        "monsoon": "NE monsoon (Oct–Jan)"
+      },
+      {
+        "month": "Feb",
+        "avg": 1974,
+        "monsoon": "Other months"
+      },
+      {
+        "month": "Mar",
+        "avg": 1606,
+        "monsoon": "Other months"
+      },
+      {
+        "month": "Apr",
+        "avg": 1323,
+        "monsoon": "Other months"
+      },
+      {
+        "month": "May",
+        "avg": 1500,
+        "monsoon": "Other months"
+      },
+      {
+        "month": "Jun",
+        "avg": 1872,
+        "monsoon": "Other months"
+      },
+      {
+        "month": "Jul",
+        "avg": 2037,
+        "monsoon": "Other months"
+      },
+      {
+        "month": "Aug",
+        "avg": 1855,
+        "monsoon": "Other months"
+      },
+      {
+        "month": "Sep",
+        "avg": 1599,
+        "monsoon": "Other months"
+      },
+      {
+        "month": "Oct",
+        "avg": 1439,
+        "monsoon": "NE monsoon (Oct–Jan)"
+      },
+      {
+        "month": "Nov",
+        "avg": 1612,
+        "monsoon": "NE monsoon (Oct–Jan)"
+      },
+      {
+        "month": "Dec",
+        "avg": 1902,
+        "monsoon": "NE monsoon (Oct–Jan)"
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec"
+      ],
+      "title": null,
+      "axis": {
+        "labelFont": "Archivo",
+        "labelFontSize": 11,
+        "labelColor": "#5A5550",
+        "labelAngle": 0,
+        "domainColor": "#D8D2C8",
+        "ticks": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusTopLeft": 2,
+        "cornerRadiusTopRight": 2,
+        "width": {
+          "band": 0.7
+        }
+      },
+      "encoding": {
+        "y": {
+          "field": "avg",
+          "type": "quantitative",
+          "title": "Average cases per week",
+          "axis": {
+            "titleFont": "Archivo",
+            "titleFontSize": 10,
+            "titleColor": "#8C827A",
+            "titleFontWeight": 600,
+            "labelFont": "Archivo",
+            "labelFontSize": 10,
+            "labelColor": "#8C827A",
+            "grid": true,
+            "gridColor": "#ECE7DF",
+            "domain": false,
+            "ticks": false
+          }
+        },
+        "color": {
+          "field": "monsoon",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "NE monsoon (Oct–Jan)",
+              "Other months"
+            ],
+            "range": [
+              "#1F6E7A",
+              "#C2DCDE"
+            ]
+          },
+          "legend": {
+            "title": null,
+            "orient": "top",
+            "labelFont": "Archivo",
+            "labelFontSize": 11,
+            "symbolType": "square"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "month",
+            "title": "Month"
+          },
+          {
+            "field": "avg",
+            "title": "Avg cases / week",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.month == 'Jan'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "baseline": "bottom",
+        "dy": -6,
+        "font": "Archivo",
+        "fontSize": 10.5,
+        "fontWeight": 700,
+        "color": "#0D4A52"
+      },
+      "encoding": {
+        "x": {
+          "field": "month",
+          "type": "ordinal",
+          "sort": [
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "Jun",
+            "Jul",
+            "Aug",
+            "Sep",
+            "Oct",
+            "Nov",
+            "Dec"
+          ]
+        },
+        "y": {
+          "field": "avg",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "Yearly peak"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Archivo"
+  }
+}

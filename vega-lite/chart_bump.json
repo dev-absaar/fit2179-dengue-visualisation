@@ -1,0 +1,171 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 300,
+  "background": null,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "values": [
+      { "state": "Selangor", "year": "2014", "rank": 1, "cases": 54290 },
+      { "state": "Selangor", "year": "2015", "rank": 1, "cases": 63198 },
+      { "state": "Selangor", "year": "2016", "rank": 1, "cases": 51652 },
+      { "state": "Selangor", "year": "2017", "rank": 1, "cases": 43931 },
+      { "state": "Selangor", "year": "2018", "rank": 1, "cases": 33344 },
+      { "state": "Selangor", "year": "2019", "rank": 1, "cases": 47783 },
+      { "state": "Selangor", "year": "2020", "rank": 1, "cases": 39940 },
+      { "state": "Selangor", "year": "2021", "rank": 1, "cases": 12969 },
+      { "state": "Selangor", "year": "2023", "rank": 1, "cases": 61080 },
+      { "state": "Kuala Lumpur", "year": "2014", "rank": 4, "cases": 9714 },
+      { "state": "Kuala Lumpur", "year": "2015", "rank": 4, "cases": 11975 },
+      { "state": "Kuala Lumpur", "year": "2016", "rank": 3, "cases": 9580 },
+      { "state": "Kuala Lumpur", "year": "2017", "rank": 2, "cases": 9377 },
+      { "state": "Kuala Lumpur", "year": "2018", "rank": 2, "cases": 7740 },
+      { "state": "Kuala Lumpur", "year": "2019", "rank": 2, "cases": 12339 },
+      { "state": "Kuala Lumpur", "year": "2020", "rank": 3, "cases": 8649 },
+      { "state": "Kuala Lumpur", "year": "2021", "rank": 2, "cases": 3163 },
+      { "state": "Kuala Lumpur", "year": "2023", "rank": 2, "cases": 14206 },
+      { "state": "Johor", "year": "2014", "rank": 5, "cases": 6323 },
+      { "state": "Johor", "year": "2015", "rank": 2, "cases": 15743 },
+      { "state": "Johor", "year": "2016", "rank": 2, "cases": 10641 },
+      { "state": "Johor", "year": "2017", "rank": 3, "cases": 7932 },
+      { "state": "Johor", "year": "2018", "rank": 4, "cases": 5885 },
+      { "state": "Johor", "year": "2019", "rank": 3, "cases": 10873 },
+      { "state": "Johor", "year": "2020", "rank": 2, "cases": 11622 },
+      { "state": "Johor", "year": "2021", "rank": 3, "cases": 1775 },
+      { "state": "Johor", "year": "2023", "rank": 3, "cases": 10794 }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "sort": ["2014", "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2023"],
+      "title": null,
+      "axis": {
+        "labelFont": "Archivo",
+        "labelFontSize": 11,
+        "labelColor": "#5A5550",
+        "labelAngle": 0,
+        "domainColor": "#D8D2C8",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "rank",
+      "type": "quantitative",
+      "scale": {
+        "domain": [0.2, 5.5],
+        "reverse": true
+      },
+      "title": "Rank (1 = most cases)",
+      "axis": {
+        "values": [1, 2, 3, 4, 5],
+        "format": "d",
+        "titleFont": "Archivo",
+        "titleFontSize": 10,
+        "titleColor": "#8C827A",
+        "titleFontWeight": 600,
+        "labelFont": "Archivo",
+        "labelFontSize": 11,
+        "labelColor": "#5A5550",
+        "grid": true,
+        "gridColor": "#ECE7DF",
+        "gridDash": [3, 3],
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "scale": {
+        "domain": ["Selangor", "Kuala Lumpur", "Johor"],
+        "range": ["#B5121B", "#E69F00", "#1F6E7A"]
+      },
+      "legend": null
+    },
+    "tooltip": [
+      { "field": "state", "type": "nominal", "title": "State" },
+      { "field": "year", "type": "ordinal", "title": "Year" },
+      { "field": "cases", "type": "quantitative", "title": "Dengue Cases", "format": "," },
+      { "field": "rank", "type": "quantitative", "title": "Rank Position" }
+    ]
+  },
+  "layer": [
+    {
+      "description": "Story Guide Line: Highlights the severe 2015 outbreak shift",
+      "data": { "values": [ { "year": "2015" } ] },
+      "mark": { "type": "rule", "strokeDash": [4, 4], "color": "#DCD5CC", "strokeWidth": 1.2 },
+      "encoding": { 
+        "color": null 
+      }
+    },
+    {
+      "description": "Main Trend Lines",
+      "mark": { "type": "line", "strokeWidth": 2.5, "interpolate": "linear" }
+    },
+    {
+      "description": "Main Data Points",
+      "mark": { "type": "point", "filled": true, "size": 70, "stroke": "#FFFFFF", "strokeWidth": 1.5 }
+    },
+    {
+      "description": "Selangor Text - Placed high in the expanded top margin area",
+      "data": { "values": [ { "year": "2017", "y_pos": 0.35 } ] },
+      "mark": { "type": "text", "align": "center", "baseline": "bottom", "font": "Archivo", "fontSize": 10, "fontWeight": 600, "lineHeight": 12 },
+      "encoding": {
+        "y": { "field": "y_pos", "type": "quantitative" },
+        "text": { "value": ["Selangor consistently records the highest", "dengue burden for the entire decade."] },
+        "color": { "value": "#5A5550" },
+        "tooltip": null
+      }
+    },
+    {
+      "description": "Selangor Pointer Line",
+      "data": { "values": [ { "year": "2017", "y_start": 0.45, "y_end": 0.9 } ] },
+      "mark": { "type": "rule", "color": "#8C827A", "strokeWidth": 1, "strokeDash": [2, 2] },
+      "encoding": {
+        "y": { "field": "y_start", "type": "quantitative" },
+        "y2": { "field": "y_end", "type": "quantitative" },
+        "color": null
+      }
+    },
+    {
+      "description": "Johor Text - Lifted into the open airspace below the active lines",
+      "data": { "values": [ { "year": "2015", "y_pos": 4.6 } ] },
+      "mark": { "type": "text", "align": "left", "baseline": "middle", "dx": 12, "font": "Archivo", "fontSize": 10, "fontWeight": 600, "lineHeight": 13 },
+      "encoding": {
+        "y": { "field": "y_pos", "type": "quantitative" },
+        "text": { "value": ["A severe surge in 2015 pushes Johor", "to the 2nd highest case count."] },
+        "color": { "value": "#5A5550" },
+        "tooltip": null
+      }
+    },
+    {
+      "description": "Johor Pointer Line - Shortened to anchor cleanly onto the new text position",
+      "data": { "values": [ { "year": "2015", "y_start": 4.4, "y_end": 2.15 } ] },
+      "mark": { "type": "rule", "color": "#8C827A", "strokeWidth": 1, "strokeDash": [2, 2] },
+      "encoding": {
+        "y": { "field": "y_start", "type": "quantitative" },
+        "y2": { "field": "y_end", "type": "quantitative" },
+        "color": null
+      }
+    },
+    {
+      "description": "Right side State Labels",
+      "transform": [ { "filter": "datum.year == '2023'" } ],
+      "mark": { "type": "text", "align": "left", "dx": 10, "font": "Archivo", "fontSize": 11, "fontWeight": 700 },
+      "encoding": {
+        "text": { "field": "state" },
+        "tooltip": null
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "font": "Archivo",
+    "padding": { "right": 90 }
+  }
+}

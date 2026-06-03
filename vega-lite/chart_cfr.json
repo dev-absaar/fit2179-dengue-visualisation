@@ -1,0 +1,283 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 330,
+  "background": null,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "values": [
+      {
+        "year": "2014",
+        "cases": 108698,
+        "deaths": 215,
+        "cfr": 1.98
+      },
+      {
+        "year": "2015",
+        "cases": 120836,
+        "deaths": 336,
+        "cfr": 2.78
+      },
+      {
+        "year": "2016",
+        "cases": 101357,
+        "deaths": 237,
+        "cfr": 2.34
+      },
+      {
+        "year": "2017",
+        "cases": 83849,
+        "deaths": 177,
+        "cfr": 2.11
+      },
+      {
+        "year": "2018",
+        "cases": 80615,
+        "deaths": 147,
+        "cfr": 1.82
+      },
+      {
+        "year": "2019",
+        "cases": 130101,
+        "deaths": 182,
+        "cfr": 1.4
+      },
+      {
+        "year": "2020",
+        "cases": 90304,
+        "deaths": 144,
+        "cfr": 1.59
+      },
+      {
+        "year": "2021",
+        "cases": 26365,
+        "deaths": 20,
+        "cfr": 0.76
+      },
+      {
+        "year": "2022",
+        "cases": 66102,
+        "deaths": 56,
+        "cfr": 0.85
+      },
+      {
+        "year": "2023",
+        "cases": 123133,
+        "deaths": 100,
+        "cfr": 0.81
+      }
+    ]
+  },
+  "encoding": {
+    "x": {
+      "field": "year",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelFont": "Archivo",
+        "labelFontSize": 11,
+        "labelColor": "#5A5550",
+        "labelAngle": 0,
+        "domainColor": "#D8D2C8",
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "cfr",
+      "type": "quantitative",
+      "title": "Deaths per 1,000 reported cases",
+      "scale": {
+        "domain": [
+          0,
+          3.2
+        ]
+      },
+      "axis": {
+        "values": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "titleFont": "Archivo",
+        "titleFontSize": 10,
+        "titleColor": "#8C827A",
+        "titleFontWeight": 600,
+        "labelFont": "Archivo",
+        "labelFontSize": 10,
+        "labelColor": "#8C827A",
+        "grid": true,
+        "gridColor": "#F0ECE4",
+        "domain": false,
+        "ticks": false
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "color": "#B5121B",
+        "strokeWidth": 1.5,
+        "strokeDash": [
+          4,
+          3
+        ],
+        "interpolate": "linear"
+      }
+    },
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "color": "#B5121B",
+        "stroke": "#FFFFFF",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "size": {
+          "field": "deaths",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              20,
+              336
+            ],
+            "range": [
+              50,
+              520
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "year",
+            "title": "Year"
+          },
+          {
+            "field": "cases",
+            "title": "Cases",
+            "format": ","
+          },
+          {
+            "field": "deaths",
+            "title": "Deaths",
+            "format": ","
+          },
+          {
+            "field": "cfr",
+            "title": "Deaths / 1,000",
+            "format": ".2f"
+          }
+        ]
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year=='2015'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "dy": -6,
+        "font": "Archivo",
+        "fontSize": 11.5,
+        "fontWeight": 700,
+        "color": "#7C0C13"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "cfr",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "2015: 2.8 deaths per 1,000 — deadliest year"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year=='2023'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -2,
+        "dy": -14,
+        "font": "Archivo",
+        "fontSize": 11.5,
+        "fontWeight": 700,
+        "color": "#B5121B"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "cfr",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": "2023: 0.8 — a 71% drop"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "year": "2019",
+            "cfr": 2.55,
+            "t": "Cases hit records, but deaths kept falling — faster diagnosis and better hospital care."
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "center",
+        "font": "Archivo",
+        "fontSize": 11.5,
+        "fontWeight": 600,
+        "color": "#5A5550",
+        "lineBreak": "|"
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "cfr",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": [
+            "Cases hit records, but deaths kept falling —",
+            "faster diagnosis and better hospital care."
+          ]
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "font": "Archivo"
+  }
+}

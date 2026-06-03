@@ -1,0 +1,947 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "values": [
+      {
+        "month": "2014-01",
+        "rain": 189,
+        "cases": 8398,
+        "monsoon": true
+      },
+      {
+        "month": "2014-02",
+        "rain": 24,
+        "cases": 9016,
+        "monsoon": false
+      },
+      {
+        "month": "2014-03",
+        "rain": 124,
+        "cases": 7842,
+        "monsoon": false
+      },
+      {
+        "month": "2014-04",
+        "rain": 248,
+        "cases": 4709,
+        "monsoon": false
+      },
+      {
+        "month": "2014-05",
+        "rain": 266,
+        "cases": 5944,
+        "monsoon": false
+      },
+      {
+        "month": "2014-06",
+        "rain": 55,
+        "cases": 9872,
+        "monsoon": false
+      },
+      {
+        "month": "2014-07",
+        "rain": 57,
+        "cases": 10106,
+        "monsoon": false
+      },
+      {
+        "month": "2014-08",
+        "rain": 142,
+        "cases": 13542,
+        "monsoon": false
+      },
+      {
+        "month": "2014-09",
+        "rain": 148,
+        "cases": 8468,
+        "monsoon": false
+      },
+      {
+        "month": "2014-10",
+        "rain": 220,
+        "cases": 8025,
+        "monsoon": true
+      },
+      {
+        "month": "2014-11",
+        "rain": 369,
+        "cases": 11410,
+        "monsoon": true
+      },
+      {
+        "month": "2014-12",
+        "rain": 506,
+        "cases": 8161,
+        "monsoon": true
+      },
+      {
+        "month": "2015-01",
+        "rain": 123,
+        "cases": 12037,
+        "monsoon": true
+      },
+      {
+        "month": "2015-02",
+        "rain": 44,
+        "cases": 12041,
+        "monsoon": false
+      },
+      {
+        "month": "2015-03",
+        "rain": 124,
+        "cases": 10248,
+        "monsoon": false
+      },
+      {
+        "month": "2015-04",
+        "rain": 237,
+        "cases": 5920,
+        "monsoon": false
+      },
+      {
+        "month": "2015-05",
+        "rain": 127,
+        "cases": 9432,
+        "monsoon": false
+      },
+      {
+        "month": "2015-06",
+        "rain": 78,
+        "cases": 10097,
+        "monsoon": false
+      },
+      {
+        "month": "2015-07",
+        "rain": 81,
+        "cases": 11365,
+        "monsoon": false
+      },
+      {
+        "month": "2015-08",
+        "rain": 90,
+        "cases": 12269,
+        "monsoon": false
+      },
+      {
+        "month": "2015-09",
+        "rain": 113,
+        "cases": 8988,
+        "monsoon": false
+      },
+      {
+        "month": "2015-10",
+        "rain": 153,
+        "cases": 8912,
+        "monsoon": true
+      },
+      {
+        "month": "2015-11",
+        "rain": 349,
+        "cases": 10688,
+        "monsoon": true
+      },
+      {
+        "month": "2015-12",
+        "rain": 228,
+        "cases": 9622,
+        "monsoon": true
+      },
+      {
+        "month": "2016-01",
+        "rain": 145,
+        "cases": 17088,
+        "monsoon": true
+      },
+      {
+        "month": "2016-02",
+        "rain": 101,
+        "cases": 10954,
+        "monsoon": false
+      },
+      {
+        "month": "2016-03",
+        "rain": 84,
+        "cases": 9046,
+        "monsoon": false
+      },
+      {
+        "month": "2016-04",
+        "rain": 121,
+        "cases": 6984,
+        "monsoon": false
+      },
+      {
+        "month": "2016-05",
+        "rain": 282,
+        "cases": 6345,
+        "monsoon": false
+      },
+      {
+        "month": "2016-06",
+        "rain": 82,
+        "cases": 7205,
+        "monsoon": false
+      },
+      {
+        "month": "2016-07",
+        "rain": 123,
+        "cases": 9600,
+        "monsoon": false
+      },
+      {
+        "month": "2016-08",
+        "rain": 56,
+        "cases": 8519,
+        "monsoon": false
+      },
+      {
+        "month": "2016-09",
+        "rain": 119,
+        "cases": 7198,
+        "monsoon": false
+      },
+      {
+        "month": "2016-10",
+        "rain": 264,
+        "cases": 7212,
+        "monsoon": true
+      },
+      {
+        "month": "2016-11",
+        "rain": 344,
+        "cases": 5106,
+        "monsoon": true
+      },
+      {
+        "month": "2016-12",
+        "rain": 285,
+        "cases": 5664,
+        "monsoon": true
+      },
+      {
+        "month": "2017-01",
+        "rain": 416,
+        "cases": 9018,
+        "monsoon": true
+      },
+      {
+        "month": "2017-02",
+        "rain": 178,
+        "cases": 7402,
+        "monsoon": false
+      },
+      {
+        "month": "2017-03",
+        "rain": 368,
+        "cases": 7350,
+        "monsoon": false
+      },
+      {
+        "month": "2017-04",
+        "rain": 452,
+        "cases": 9650,
+        "monsoon": false
+      },
+      {
+        "month": "2017-05",
+        "rain": 399,
+        "cases": 8920,
+        "monsoon": false
+      },
+      {
+        "month": "2017-06",
+        "rain": 158,
+        "cases": 7839,
+        "monsoon": false
+      },
+      {
+        "month": "2017-07",
+        "rain": 223,
+        "cases": 8889,
+        "monsoon": false
+      },
+      {
+        "month": "2017-08",
+        "rain": 298,
+        "cases": 4735,
+        "monsoon": false
+      },
+      {
+        "month": "2017-09",
+        "rain": 406,
+        "cases": 4510,
+        "monsoon": false
+      },
+      {
+        "month": "2017-10",
+        "rain": 283,
+        "cases": 4841,
+        "monsoon": true
+      },
+      {
+        "month": "2017-11",
+        "rain": 611,
+        "cases": 5512,
+        "monsoon": true
+      },
+      {
+        "month": "2017-12",
+        "rain": 340,
+        "cases": 8415,
+        "monsoon": true
+      },
+      {
+        "month": "2018-01",
+        "rain": 411,
+        "cases": 4510,
+        "monsoon": true
+      },
+      {
+        "month": "2018-02",
+        "rain": 127,
+        "cases": 4747,
+        "monsoon": false
+      },
+      {
+        "month": "2018-03",
+        "rain": 293,
+        "cases": 4516,
+        "monsoon": false
+      },
+      {
+        "month": "2018-04",
+        "rain": 364,
+        "cases": 5524,
+        "monsoon": false
+      },
+      {
+        "month": "2018-05",
+        "rain": 455,
+        "cases": 6072,
+        "monsoon": false
+      },
+      {
+        "month": "2018-06",
+        "rain": 188,
+        "cases": 7137,
+        "monsoon": false
+      },
+      {
+        "month": "2018-07",
+        "rain": 182,
+        "cases": 10105,
+        "monsoon": false
+      },
+      {
+        "month": "2018-08",
+        "rain": 173,
+        "cases": 7242,
+        "monsoon": false
+      },
+      {
+        "month": "2018-09",
+        "rain": 298,
+        "cases": 7121,
+        "monsoon": false
+      },
+      {
+        "month": "2018-10",
+        "rain": 490,
+        "cases": 6416,
+        "monsoon": true
+      },
+      {
+        "month": "2018-11",
+        "rain": 472,
+        "cases": 7736,
+        "monsoon": true
+      },
+      {
+        "month": "2018-12",
+        "rain": 449,
+        "cases": 12525,
+        "monsoon": true
+      },
+      {
+        "month": "2019-01",
+        "rain": 208,
+        "cases": 12911,
+        "monsoon": true
+      },
+      {
+        "month": "2019-02",
+        "rain": 169,
+        "cases": 11011,
+        "monsoon": false
+      },
+      {
+        "month": "2019-03",
+        "rain": 159,
+        "cases": 11557,
+        "monsoon": false
+      },
+      {
+        "month": "2019-04",
+        "rain": 307,
+        "cases": 6653,
+        "monsoon": false
+      },
+      {
+        "month": "2019-05",
+        "rain": 275,
+        "cases": 8227,
+        "monsoon": false
+      },
+      {
+        "month": "2019-06",
+        "rain": 248,
+        "cases": 12633,
+        "monsoon": false
+      },
+      {
+        "month": "2019-07",
+        "rain": 148,
+        "cases": 13549,
+        "monsoon": false
+      },
+      {
+        "month": "2019-08",
+        "rain": 130,
+        "cases": 11815,
+        "monsoon": false
+      },
+      {
+        "month": "2019-09",
+        "rain": 178,
+        "cases": 11762,
+        "monsoon": false
+      },
+      {
+        "month": "2019-10",
+        "rain": 403,
+        "cases": 7709,
+        "monsoon": true
+      },
+      {
+        "month": "2019-11",
+        "rain": 402,
+        "cases": 9092,
+        "monsoon": true
+      },
+      {
+        "month": "2019-12",
+        "rain": 290,
+        "cases": 13363,
+        "monsoon": true
+      },
+      {
+        "month": "2020-01",
+        "rain": 154,
+        "cases": 12484,
+        "monsoon": true
+      },
+      {
+        "month": "2020-02",
+        "rain": 172,
+        "cases": 10968,
+        "monsoon": false
+      },
+      {
+        "month": "2020-03",
+        "rain": 205,
+        "cases": 9078,
+        "monsoon": false
+      },
+      {
+        "month": "2020-04",
+        "rain": 304,
+        "cases": 4986,
+        "monsoon": false
+      },
+      {
+        "month": "2020-05",
+        "rain": 270,
+        "cases": 8239,
+        "monsoon": false
+      },
+      {
+        "month": "2020-06",
+        "rain": 255,
+        "cases": 7977,
+        "monsoon": false
+      },
+      {
+        "month": "2020-07",
+        "rain": 360,
+        "cases": 7928,
+        "monsoon": false
+      },
+      {
+        "month": "2020-08",
+        "rain": 143,
+        "cases": 8582,
+        "monsoon": false
+      },
+      {
+        "month": "2020-09",
+        "rain": 309,
+        "cases": 5385,
+        "monsoon": false
+      },
+      {
+        "month": "2020-10",
+        "rain": 201,
+        "cases": 4515,
+        "monsoon": true
+      },
+      {
+        "month": "2020-11",
+        "rain": 477,
+        "cases": 4596,
+        "monsoon": true
+      },
+      {
+        "month": "2020-12",
+        "rain": 388,
+        "cases": 2433,
+        "monsoon": true
+      },
+      {
+        "month": "2021-01",
+        "rain": 220,
+        "cases": 3371,
+        "monsoon": true
+      },
+      {
+        "month": "2021-02",
+        "rain": 54,
+        "cases": 2259,
+        "monsoon": false
+      },
+      {
+        "month": "2021-03",
+        "rain": 334,
+        "cases": 1856,
+        "monsoon": false
+      },
+      {
+        "month": "2021-04",
+        "rain": 301,
+        "cases": 1894,
+        "monsoon": false
+      },
+      {
+        "month": "2021-05",
+        "rain": 321,
+        "cases": 2421,
+        "monsoon": false
+      },
+      {
+        "month": "2021-06",
+        "rain": 185,
+        "cases": 2506,
+        "monsoon": false
+      },
+      {
+        "month": "2021-07",
+        "rain": 170,
+        "cases": 2162,
+        "monsoon": false
+      },
+      {
+        "month": "2021-08",
+        "rain": 278,
+        "cases": 2085,
+        "monsoon": false
+      },
+      {
+        "month": "2021-09",
+        "rain": 298,
+        "cases": 1706,
+        "monsoon": false
+      },
+      {
+        "month": "2021-10",
+        "rain": 121,
+        "cases": 2306,
+        "monsoon": true
+      },
+      {
+        "month": "2021-11",
+        "rain": 310,
+        "cases": 2010,
+        "monsoon": true
+      },
+      {
+        "month": "2021-12",
+        "rain": 461,
+        "cases": 2402,
+        "monsoon": true
+      },
+      {
+        "month": "2022-01",
+        "rain": 236,
+        "cases": 3609,
+        "monsoon": true
+      },
+      {
+        "month": "2022-02",
+        "rain": 183,
+        "cases": 2657,
+        "monsoon": false
+      },
+      {
+        "month": "2022-03",
+        "rain": 203,
+        "cases": 2753,
+        "monsoon": false
+      },
+      {
+        "month": "2022-04",
+        "rain": 276,
+        "cases": 3942,
+        "monsoon": false
+      },
+      {
+        "month": "2022-05",
+        "rain": 141,
+        "cases": 5884,
+        "monsoon": false
+      },
+      {
+        "month": "2022-06",
+        "rain": 306,
+        "cases": 5883,
+        "monsoon": false
+      },
+      {
+        "month": "2022-07",
+        "rain": 154,
+        "cases": 7792,
+        "monsoon": false
+      },
+      {
+        "month": "2022-08",
+        "rain": 263,
+        "cases": 5429,
+        "monsoon": false
+      },
+      {
+        "month": "2022-09",
+        "rain": 235,
+        "cases": 5619,
+        "monsoon": false
+      },
+      {
+        "month": "2022-10",
+        "rain": 201,
+        "cases": 7623,
+        "monsoon": true
+      },
+      {
+        "month": "2022-11",
+        "rain": 400,
+        "cases": 6734,
+        "monsoon": true
+      },
+      {
+        "month": "2022-12",
+        "rain": 339,
+        "cases": 7807,
+        "monsoon": true
+      }
+    ]
+  },
+  "vconcat": [
+    {
+      "width": "container",
+      "height": 150,
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.monsoon"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "opacity": 0.12,
+            "color": "#1F6E7A"
+          },
+          "encoding": {
+            "x": {
+              "field": "month",
+              "type": "temporal"
+            },
+            "x2": {
+              "field": "month",
+              "type": "temporal"
+            },
+            "y": {
+              "value": 0
+            },
+            "y2": {
+              "value": 150
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "area",
+            "interpolate": "monotone",
+            "color": "#1F6E7A",
+            "opacity": 0.75,
+            "line": {
+              "color": "#1F6E7A",
+              "strokeWidth": 1.5
+            }
+          },
+          "encoding": {
+            "x": {
+              "field": "month",
+              "type": "temporal",
+              "title": null,
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 10,
+                "labelColor": "#5A5550",
+                "grid": false,
+                "tickSize": 0,
+                "domainColor": "#D8D2C8",
+                "labels": false,
+                "ticks": false,
+                "domain": true
+              }
+            },
+            "y": {
+              "field": "rain",
+              "type": "quantitative",
+              "title": "Rainfall (mm)",
+              "axis": {
+                "labelFont": "Archivo",
+                "titleFont": "Archivo",
+                "labelFontSize": 10,
+                "titleFontSize": 10,
+                "labelColor": "#5A5550",
+                "titleColor": "#1F6E7A",
+                "titleFontWeight": 600,
+                "grid": true,
+                "gridColor": "#ECE7DF",
+                "gridDash": [
+                  3,
+                  3
+                ],
+                "domain": false,
+                "ticks": false,
+                "titlePadding": 10
+              }
+            },
+            "tooltip": [
+              {
+                "field": "month",
+                "type": "temporal",
+                "title": "Month",
+                "format": "%b %Y"
+              },
+              {
+                "field": "rain",
+                "type": "quantitative",
+                "title": "Rainfall (mm)",
+                "format": ".0f"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "month": "2018-11-01",
+                "rain": 472,
+                "label": "Monsoon rain peaks · Oct–Dec"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 11,
+            "fontWeight": 700,
+            "color": "#1F6E7A",
+            "align": "right",
+            "dx": -6,
+            "dy": -8
+          },
+          "encoding": {
+            "x": {
+              "field": "month",
+              "type": "temporal"
+            },
+            "y": {
+              "field": "rain",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "width": "container",
+      "height": 170,
+      "layer": [
+        {
+          "transform": [
+            {
+              "filter": "datum.monsoon"
+            }
+          ],
+          "mark": {
+            "type": "rect",
+            "opacity": 0.12,
+            "color": "#1F6E7A"
+          },
+          "encoding": {
+            "x": {
+              "field": "month",
+              "type": "temporal"
+            },
+            "x2": {
+              "field": "month",
+              "type": "temporal"
+            },
+            "y": {
+              "value": 0
+            },
+            "y2": {
+              "value": 170
+            }
+          }
+        },
+        {
+          "mark": {
+            "type": "area",
+            "interpolate": "monotone",
+            "color": "#B5121B",
+            "opacity": 0.65,
+            "line": {
+              "color": "#B5121B",
+              "strokeWidth": 1.5
+            }
+          },
+          "encoding": {
+            "x": {
+              "field": "month",
+              "type": "temporal",
+              "title": null,
+              "axis": {
+                "labelFont": "Archivo",
+                "labelFontSize": 10,
+                "labelColor": "#5A5550",
+                "grid": false,
+                "tickSize": 0,
+                "domainColor": "#D8D2C8",
+                "format": "%Y",
+                "tickCount": "year",
+                "labelAngle": 0,
+                "labelPadding": 6
+              }
+            },
+            "y": {
+              "field": "cases",
+              "type": "quantitative",
+              "title": "Monthly cases",
+              "axis": {
+                "labelFont": "Archivo",
+                "titleFont": "Archivo",
+                "labelFontSize": 10,
+                "titleFontSize": 10,
+                "labelColor": "#5A5550",
+                "titleColor": "#B5121B",
+                "titleFontWeight": 600,
+                "grid": true,
+                "gridColor": "#ECE7DF",
+                "gridDash": [
+                  3,
+                  3
+                ],
+                "domain": false,
+                "ticks": false,
+                "titlePadding": 10,
+                "format": ",.0f"
+              }
+            },
+            "tooltip": [
+              {
+                "field": "month",
+                "type": "temporal",
+                "title": "Month",
+                "format": "%b %Y"
+              },
+              {
+                "field": "cases",
+                "type": "quantitative",
+                "title": "Monthly cases",
+                "format": ",.0f"
+              }
+            ]
+          }
+        },
+        {
+          "data": {
+            "values": [
+              {
+                "month": "2019-01-01",
+                "cases": 12911,
+                "label": "Cases peak ~2 months later · Jan"
+              }
+            ]
+          },
+          "mark": {
+            "type": "text",
+            "font": "Archivo",
+            "fontSize": 11,
+            "fontWeight": 700,
+            "color": "#B5121B",
+            "align": "left",
+            "dx": 6,
+            "dy": -8
+          },
+          "encoding": {
+            "x": {
+              "field": "month",
+              "type": "temporal"
+            },
+            "y": {
+              "field": "cases",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "label"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "spacing": 10,
+  "resolve": {
+    "scale": {
+      "x": "shared"
+    }
+  },
+  "config": {
+    "view": {
+      "stroke": null
+    },
+    "background": "transparent",
+    "font": "Archivo"
+  }
+}

@@ -1,0 +1,179 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Annual dengue cases in Malaysia 2014-2023. Shows the 2015 DENV2 epidemic, 2019 record peak, 2021 COVID collapse, and 2023 near-record rebound.",
+  "width": "container",
+  "height": 360,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding"
+  },
+  "data": {
+    "url": "data/annual_national.csv",
+    "format": {
+      "type": "csv"
+    }
+  },
+  "layer": [
+    {
+      "description": "Main Area Graph",
+      "mark": {
+        "type": "area",
+        "interpolate": "monotone",
+        "line": {
+          "color": "#B5121B",
+          "strokeWidth": 2.5
+        },
+        "color": {
+          "x1": 1,
+          "y1": 1,
+          "x2": 1,
+          "y2": 0,
+          "gradient": "linear",
+          "stops": [
+            { "offset": 0, "color": "#FBF6EC" },
+            { "offset": 1, "color": "#B5121B" }
+          ]
+        },
+        "opacity": 0.35
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelFont": "Archivo",
+            "labelFontSize": 12,
+            "labelColor": "#5C534B",
+            "labelAngle": 0,
+            "grid": false,
+            "tickSize": 0,
+            "domainColor": "#D8CBB6"
+          }
+        },
+        "y": {
+          "field": "cases",
+          "type": "quantitative",
+          "title": "Reported cases",
+          "scale": { "domain": [0, 145000] },
+          "axis": {
+            "labelFont": "Archivo",
+            "titleFont": "Archivo",
+            "labelFontSize": 11,
+            "titleFontSize": 11,
+            "labelColor": "#5C534B",
+            "titleColor": "#5C534B",
+            "titlePadding": 12,
+            "grid": true,
+            "gridColor": "#D8CBB6",
+            "gridDash": [3, 3],
+            "domain": false,
+            "ticks": false,
+            "labelExpr": "datum.value === 0 ? '0' : (datum.value / 1000) + 'k'"
+          }
+        },
+        "tooltip": [
+          { "field": "year", "type": "ordinal", "title": "Year" },
+          { "field": "cases", "type": "quantitative", "title": "Cases", "format": "," },
+          { "field": "deaths", "type": "quantitative", "title": "Deaths", "format": "," }
+        ]
+      }
+    },
+    {
+      "description": "Vertical Dashed Guide Lines",
+      "data": {
+        "values": [
+          { "year": "2015" },
+          { "year": "2019" },
+          { "year": "2021" },
+          { "year": "2023" }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeDash": [3, 3],
+        "color": "#5C534B",
+        "opacity": 0.4,
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": { "field": "year", "type": "ordinal" }
+      }
+    },
+    {
+      "description": "Center-Aligned Labels (Peaks and Valleys for 2015, 2019, 2021)",
+      "data": {
+        "values": [
+          { "year": "2015", "cases": 120836, "label": "2015 — 120,836 cases", "y_offset": -14, "v_align": "bottom" },
+          { "year": "2019", "cases": 130101, "label": "Record — 130,101 cases", "y_offset": -14, "v_align": "bottom" },
+          { "year": "2021", "cases": 26365, "label": "COVID collapse — 26,365", "y_offset": 14, "v_align": "top" }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1C1714"
+      },
+      "encoding": {
+        "x": { "field": "year", "type": "ordinal" },
+        "y": { "field": "cases", "type": "quantitative" },
+        "text": { "field": "label" },
+        "align": { "value": "center" },
+        "baseline": { "field": "v_align", "type": "nominal", "scale": null },
+        "dy": { "field": "y_offset", "type": "quantitative", "scale": null }
+      }
+    },
+    {
+      "description": "Right-Aligned Label (Dedicated to the 2023 Far-Right Boundary)",
+      "data": {
+        "values": [
+          { "year": "2023", "cases": 123133, "label": "2023 — 123,133 cases" }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "color": "#1C1714"
+      },
+      "encoding": {
+        "x": { "field": "year", "type": "ordinal" },
+        "y": { "field": "cases", "type": "quantitative" },
+        "text": { "field": "label" },
+        "align": { "value": "right" },
+        "baseline": { "value": "middle" },
+        "dx": { "value": -12 },
+        "dy": { "value": -2 }
+      }
+    },
+    {
+      "description": "Highlight Data Point Circles",
+      "data": {
+        "values": [
+          { "year": "2015", "cases": 120836 },
+          { "year": "2019", "cases": 130101 },
+          { "year": "2021", "cases": 26365 },
+          { "year": "2023", "cases": 123133 }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "size": 55,
+        "color": "#B5121B",
+        "fill": "#FBF6EC",
+        "strokeWidth": 2
+      },
+      "encoding": {
+        "x": { "field": "year", "type": "ordinal" },
+        "y": { "field": "cases", "type": "quantitative" }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "background": "transparent"
+  }
+}

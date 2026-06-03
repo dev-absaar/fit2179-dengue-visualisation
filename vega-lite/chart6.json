@@ -1,0 +1,153 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 420,
+  "autosize": { "type": "fit", "contains": "padding" },
+  "data": {
+    "url": "data/bubble_data.csv",
+    "format": { "type": "csv" }
+  },
+  "layer": [
+    {
+      "params": [{
+        "name": "region_select",
+        "select": { "type": "point", "fields": ["region"] },
+        "bind": "legend"
+      }],
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "opacity": 0.82,
+        "stroke": "#FBF6EC",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "x": {
+          "field": "avg_pop_thousands",
+          "type": "quantitative",
+          "title": "Average population (thousands, log scale)",
+          "scale": { "type": "log", "base": 10, "domain": [80, 8000] },
+          "axis": {
+            "labelFont": "Archivo", "labelFontSize": 11, "labelColor": "#5C534B",
+            "titleFont": "Archivo", "titleFontSize": 12, "titleColor": "#5C534B",
+            "titleFontWeight": 600, "titlePadding": 10,
+            "grid": true, "gridColor": "#D8CBB6", "gridDash": [3,3],
+            "domain": false, "ticks": false,
+            "values": [100, 300, 1000, 3000, 7000], "format": ","
+          }
+        },
+        "y": {
+          "field": "incidence_per_100k",
+          "type": "quantitative",
+          "title": "Average annual incidence (cases per 100,000)",
+          "scale": { "domain": [0, 870] },
+          "axis": {
+            "labelFont": "Archivo", "labelFontSize": 11, "labelColor": "#5C534B",
+            "titleFont": "Archivo", "titleFontSize": 12, "titleColor": "#5C534B",
+            "titleFontWeight": 600, "titlePadding": 10,
+            "grid": true, "gridColor": "#D8CBB6", "gridDash": [3,3],
+            "domain": false, "ticks": false,
+            "values": [0, 200, 400, 600, 800]
+          }
+        },
+        "size": {
+          "field": "total_cases",
+          "type": "quantitative",
+          "scale": { "type": "sqrt", "domain": [326, 453778], "range": [55, 3000] },
+          "legend": {
+            "title": "Total cases 2014–2023",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "gradientLength": 0,
+            "symbolFillColor": "#C0B8B0",
+            "symbolStrokeWidth": 0,
+            "labelFont": "Archivo", "labelFontSize": 10, "labelColor": "#5C534B",
+            "titleFont": "Archivo", "titleFontSize": 10, "titleColor": "#5C534B",
+            "titleFontWeight": 600, "format": "~s",
+            "values": [10000, 50000, 150000, 400000],
+            "offset": 12,
+            "rowPadding": 4,
+            "columnPadding": 16
+          }
+        },
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Peninsular", "East Coast", "Borneo"],
+            "range":  ["#B5121B",   "#E69F00",    "#1F6E7A"]
+          },
+          "legend": {
+            "title": "Region — click to isolate",
+            "orient": "bottom",
+            "direction": "horizontal",
+            "labelFont": "Archivo", "labelFontSize": 11, "labelColor": "#1C1714",
+            "titleFont": "Archivo", "titleFontSize": 11, "titleColor": "#5C534B",
+            "titleFontWeight": 600,
+            "symbolSize": 120, "symbolStrokeWidth": 0,
+            "offset": 40, "padding": 6
+          }
+        },
+        "opacity": {
+          "condition": { "param": "region_select", "value": 0.85 },
+          "value": 0.12
+        },
+        "tooltip": [
+          { "field": "state",              "type": "nominal",     "title": "State" },
+          { "field": "region",             "type": "nominal",     "title": "Region" },
+          { "field": "avg_pop_thousands",  "type": "quantitative","title": "Avg population (thousands)", "format": ",.0f" },
+          { "field": "incidence_per_100k", "type": "quantitative","title": "Incidence per 100,000",       "format": ",.1f" },
+          { "field": "avg_annual_cases",   "type": "quantitative","title": "Avg annual cases",            "format": "," },
+          { "field": "total_cases",        "type": "quantitative","title": "Total cases (all years)",     "format": "," }
+        ]
+      }
+    },
+    {
+      "transform": [{ "filter": "datum.show_label == 1" }],
+      "mark": {
+        "type": "text",
+        "font": "Archivo",
+        "fontSize": 11,
+        "fontWeight": 600,
+        "align": "center",
+        "baseline": "bottom",
+
+        "radius": 18,
+        "radiusOffset":6
+      },
+      "encoding": {
+        "x": {
+          "field": "avg_pop_thousands",
+          "type": "quantitative",
+          "scale": { "type": "log", "base": 10, "domain": [80, 8000] }
+        },
+        "y": {
+          "field": "incidence_per_100k",
+          "type": "quantitative",
+          "scale": { "domain": [0, 870] }
+        },
+        "text":  { "field": "state" },
+        "dx":    { "field": "label_dx", "type": "quantitative", "scale": null },
+        "dy":    { "field": "label_dy", "type": "quantitative", "scale": null },
+        "color": {
+          "field": "region",
+          "type": "nominal",
+          "scale": {
+            "domain": ["Peninsular", "East Coast", "Borneo"],
+            "range":  ["#7C0C13",   "#7A5500",    "#0D4A52"]
+          },
+          "legend": null
+        },
+        "opacity": {
+          "condition": { "param": "region_select", "value": 1 },
+          "value": 0
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": { "stroke": null },
+    "background": "transparent",
+    "padding": { "top": 16, "right": 80, "bottom": 20, "left": 16 }
+  }
+}

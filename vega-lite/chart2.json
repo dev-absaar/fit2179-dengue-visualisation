@@ -1,0 +1,179 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Annual dengue deaths in Malaysia 2014-2023. Shows deaths falling from 336 in 2015 to 100 in 2023 despite cases rebounding — planting the mystery the Epilogue resolves.",
+  "width": "container",
+  "height": 360,
+  "autosize": {"type": "fit", "contains": "padding"},
+  "title": {
+    "text": "Deaths did not follow the cases",
+    "subtitle": "Annual dengue deaths · Malaysia 2014-2023 · hover each bar for details",
+    "font": "Fraunces",
+    "fontSize": 14,
+    "fontWeight": 700,
+    "subtitleFont": "Source Sans 3",
+    "subtitleFontSize": 11,
+    "color": "#1C1714",
+    "subtitleColor": "#5C534B",
+    "anchor": "start",
+    "offset": 12
+  },
+  "data": {
+    "values": [
+      {"year": "2014", "deaths": 215, "cases": 108698},
+      {"year": "2015", "deaths": 336, "cases": 120836},
+      {"year": "2016", "deaths": 237, "cases": 101357},
+      {"year": "2017", "deaths": 177, "cases": 83849},
+      {"year": "2018", "deaths": 147, "cases": 80615},
+      {"year": "2019", "deaths": 182, "cases": 130101},
+      {"year": "2020", "deaths": 144, "cases": 90304},
+      {"year": "2021", "deaths": 20,  "cases": 26365},
+      {"year": "2022", "deaths": 56,  "cases": 66102},
+      {"year": "2023", "deaths": 100, "cases": 123133}
+    ]
+  },
+  "layer": [
+    {
+      "data": {"values": [{"threshold": 336}]},
+      "mark": {
+        "type": "rule",
+        "strokeDash": [4, 3],
+        "color": "#B5121B",
+        "opacity": 0.2,
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "y": {
+          "field": "threshold",
+          "type": "quantitative",
+          "scale": {"domain": [0, 390]}
+        }
+      }
+    },
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusTopLeft": 2,
+        "cornerRadiusTopRight": 2
+      },
+      "encoding": {
+        "x": {
+          "field": "year",
+          "type": "ordinal",
+          "title": null,
+          "axis": {
+            "labelFont": "Source Sans 3",
+            "labelFontSize": 12,
+            "labelColor": "#5C534B",
+            "labelAngle": 0,
+            "grid": false,
+            "tickSize": 0,
+            "domainColor": "#D8CBB6"
+          }
+        },
+        "y": {
+          "field": "deaths",
+          "type": "quantitative",
+          "title": "Deaths",
+          "scale": {"domain": [0, 390]},
+          "axis": {
+            "labelFont": "Source Sans 3",
+            "titleFont": "Source Sans 3",
+            "labelFontSize": 11,
+            "titleFontSize": 11,
+            "labelColor": "#5C534B",
+            "titleColor": "#5C534B",
+            "titlePadding": 12,
+            "grid": true,
+            "gridColor": "#D8CBB6",
+            "gridDash": [3, 3],
+            "domain": false,
+            "ticks": false,
+            "tickCount": 5
+          }
+        },
+        "color": {
+          "condition": [
+            {"test": "datum.year === '2015'", "value": "#7C0C13"},
+            {"test": "datum.year === '2019' || datum.year === '2023'", "value": "#B5121B"}
+          ],
+          "value": "#D8A0A5"
+        },
+        "tooltip": [
+          {"field": "year", "title": "Year"},
+          {"field": "deaths", "title": "Deaths", "format": ","},
+          {"field": "cases", "title": "Reported cases", "format": ","}
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"year": "2015", "deaths": 336, "line1": "336",   "line2": "Deadliest year"},
+          {"year": "2019", "deaths": 182, "line1": "182",   "line2": "Record cases — fewer deaths"},
+          {"year": "2021", "deaths": 20,  "line1": "20",    "line2": "COVID lockdown"},
+          {"year": "2023", "deaths": 100, "line1": "100",   "line2": "Near-record cases"}
+        ]
+      },
+      "layer": [
+        {
+          "mark": {
+            "type": "text",
+            "font": "Source Sans 3",
+            "fontSize": 12,
+            "fontWeight": 700,
+            "color": "#1C1714",
+            "baseline": "bottom",
+            "dy": -18
+          },
+          "encoding": {
+            "x": {"field": "year", "type": "ordinal"},
+            "y": {"field": "deaths", "type": "quantitative"},
+            "text": {"field": "line1"}
+          }
+        },
+        {
+          "mark": {
+            "type": "text",
+            "font": "Source Sans 3",
+            "fontSize": 9,
+            "fontWeight": 400,
+            "fontStyle": "italic",
+            "color": "#5C534B",
+            "baseline": "bottom",
+            "dy": -4
+          },
+          "encoding": {
+            "x": {"field": "year", "type": "ordinal"},
+            "y": {"field": "deaths", "type": "quantitative"},
+            "text": {"field": "line2"}
+          }
+        }
+      ]
+    },
+    {
+      "data": {
+        "values": [
+          {"year": "2016", "y": 370, "msg": "2019 had 10,000 more cases than 2015 — but 154 fewer deaths. Why?"}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "font": "Source Sans 3",
+        "fontSize": 10,
+        "fontWeight": 600,
+        "fontStyle": "italic",
+        "color": "#B5121B",
+        "align": "left"
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "y", "type": "quantitative"},
+        "text": {"field": "msg"}
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null},
+    "background": "transparent"
+  }
+}
